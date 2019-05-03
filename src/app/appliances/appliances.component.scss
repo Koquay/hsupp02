@@ -1,0 +1,54 @@
+
+#desktop {
+    #body {
+        li {
+            margin-bottom: 0.5rem;
+            
+            a {
+                display: block;
+            }
+        }
+        
+        #sidebar {
+            .row {
+                margin-top: .5rem;
+            }
+        }
+        
+        #main-section {
+            #banner-col {
+                position: relative;                
+                
+                #banner-text {
+                    position: absolute;
+                    top: 1rem;
+                    left: 2rem;
+                }
+                
+                h1, h4 {
+                    font-weight: 900;
+                }
+            }            
+            
+            #laundry-appliances-section {
+                hr {
+                    border: .5px solid !important;
+                }
+            }
+        }        
+    }
+}
+
+#mobile-section {
+    padding: .5rem;
+    
+    #mobile-shop-by-category {
+        .section-header {
+            font-size: 1.5rem;
+        }
+    }
+    
+    @media (min-width: 768px) {
+        padding: .5rem 5rem;
+    }
+}

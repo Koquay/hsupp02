@@ -1,0 +1,20 @@
+$color-blue: #3e7697;
+
+#sidebar {
+    .row {
+        margin-top: .5rem;
+    }
+
+    li {
+        margin-bottom: 0.5rem;
+        
+        a {
+            display: block;
+            color: initial;
+
+            &:hover {
+                color: $color-blue;
+            }
+        }
+    }
+}

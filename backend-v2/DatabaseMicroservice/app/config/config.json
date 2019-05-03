@@ -1,0 +1,12 @@
+{
+  "UserMicroservice": {
+    "signIn": "/api/user/microservice/signin",
+    "signinUrl": "http://localhost:4210/usermicroservice/signin"
+  },
+  "ProductMicroservice": {
+    "productHeartbeat": "/api/product/heartbeat",
+    "productHeartbeatUrl": "http://localhost:4220/product/heartbeat",
+    "product":"/api/product",
+    "productUrl":"http://localhost:4220/product"
+  }
+}

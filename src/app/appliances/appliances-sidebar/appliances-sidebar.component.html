@@ -1,0 +1,44 @@
+<section id="sidebar" *ngIf="appliancesSidebarLinks">
+  <div class="row">
+    <div class="col">
+      <h6 class="font-weight-bold">{{appliancesSidebarLinks.appliancesBrand.title}}</h6>
+      <ul class="list-unstyled">
+        <li *ngFor="let link of appliancesSidebarLinks.appliancesBrand.links">
+          <a [routerLink]="['/brand', link]">
+            {{link}}
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <h6 class="font-weight-bold">{{appliancesSidebarLinks.refrigerators.title}}</h6>
+      <ul class="list-unstyled">
+        <li *ngFor="let link of appliancesSidebarLinks.refrigerators.links">
+          <a href="#">{{link}}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <h6 class="font-weight-bold">{{appliancesSidebarLinks.washers.title}}</h6>
+      <ul class="list-unstyled">
+        <li *ngFor="let link of appliancesSidebarLinks.washers.links">
+          <a href="#">{{link}}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <h6 class="font-weight-bold">{{appliancesSidebarLinks.dryers.title}}</h6>
+      <ul class="list-unstyled">
+        <li *ngFor="let link of appliancesSidebarLinks.dryers.links">
+          <a href="#">{{link}}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>

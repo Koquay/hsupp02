@@ -1,0 +1,21 @@
+{
+  "UserMicroservice": {
+    "signIn": "/api/user/signin",
+    "signIn2": "/api/user/microservice/signin",
+    "signinUrl": "http://localhost:4210/user/signin"
+  },
+  "ProductMicroservice": {
+    "productHeartbeat": "/api/product/heartbeat",
+    "productHeartbeatUrl": "http://localhost:4220/product/heartbeat",
+    "product":"/api/product",
+    "productByFilterUrl":"http://localhost:4220/product",
+    "productByIdUrl":"http://localhost:4220/product/id"
+  },
+  "DatabaseMicroservice": {
+    "databaseUrl":"http://localhost:4230/product"
+  },
+  "CartMicroservice": {
+    "cartUrl":"http://localhost:4240/cart",
+    "cartAddUrl":"http://localhost:4240/cart/add"
+  }
+}

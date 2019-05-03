@@ -1,0 +1,6 @@
+{
+  "DatabaseMicroservice": {    
+    "productByFilterUrl":"http://localhost:4230/product",
+    "productByIdUrl":"http://localhost:4230/product/id"
+  }
+}
