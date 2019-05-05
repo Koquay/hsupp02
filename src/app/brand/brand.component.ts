@@ -4,6 +4,7 @@ import { ActivatedRoute, Router, ParamMap } from '@angular/router';
 import { BrandSidebarService } from './brand-sidebar/brand-sidebar.service';
 import { ProductFilters } from '../shared/filters/product-filters';
 import {BrandService} from './brand.service';
+import { Product } from '../shared/models/data-model';
 
 @Component({
   selector: 'app-brand',
@@ -13,6 +14,7 @@ import {BrandService} from './brand.service';
 export class BrandComponent implements OnInit {
   private initialBrand = false;
   private productFilters: ProductFilters;
+  private products:Product[];
 
   constructor(
     private brandSidebarService: BrandSidebarService,
@@ -37,7 +39,7 @@ export class BrandComponent implements OnInit {
 
   private getProducts() {
     this.brandService.getProducts(this.productFilters).subscribe(products => {
-      
+      this.products = products;
     })
   }
 

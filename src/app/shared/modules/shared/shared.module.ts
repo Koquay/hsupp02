@@ -5,11 +5,13 @@ import {FormsModule} from '@angular/forms';
 import { SharedRoutingModule } from './shared-routing.module';
 import { HeaderComponent } from '../../../header/header.component';
 import { FooterComponent } from '../../../footer/footer.component';
+import { PercentSavedPipe } from '../../pipes/percent-saved.pipe';
 
 @NgModule({
   declarations: [
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    PercentSavedPipe
   ],
   imports: [
     CommonModule,
@@ -18,7 +20,8 @@ import { FooterComponent } from '../../../footer/footer.component';
   ],
   exports: [
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    PercentSavedPipe
   ]
 })
 export class SharedModule { }

@@ -45,18 +45,7 @@ const setProductInCache = (id, product) => {
 exports.getProducts = async (res, filters) => {
     console.log('\n#### ProductService#getProducts ####')
 
-    let { brands, priceRanges, rating, pageNo, pageSize, sortFilter } = JSON.parse(filters);
-    console.log('priceRanges', priceRanges)
-    
-
-    let aggregatePipeLine = [];
-    aggregatePipeLine.push(buildBrandMatch(brands));
-    aggregatePipeLine    .push(buildPriceRangeMatch(priceRanges));
-    aggregatePipeLine.push(buildRatingMatch(rating));
-    aggregatePipeLine.push(buildSortMatch(sortFilter));
-    checkForEmptyAggregate(aggregatePipeLine);
-    aggregatePipeLine.push(buildPageNumberFilter(pageNo));
-    aggregatePipeLine.push(buildPageSizeFilter(pageSize));
+    let aggregatePipeLine = buildAggregatePipeline(filters);
 
     console.log('aggregatePipeLine', aggregatePipeLine)
 
@@ -70,10 +59,43 @@ exports.getProducts = async (res, filters) => {
     }
 }
 
+function buildAggregatePipeline(filters) {
+    let { brands, priceRanges, rating, pageNo, pageSize, sortFilter } = JSON.parse(filters);
+    console.log('pageSize', pageSize)
+
+    let aggregatePipeLine =[];
+
+    let brandMatch = buildBrandMatch(brands);
+
+    if(brandMatch) {
+        aggregatePipeLine.push(brandMatch);
+    }
+    
+    let priceMatch = buildPriceRangeMatch(priceRanges);
+
+    if(priceMatch) {
+        aggregatePipeLine.push(priceMatch);
+    }
+
+    let ratingMatch = buildRatingMatch(rating);
+    if(ratingMatch) {
+        aggregatePipeLine.push(ratingMatch);
+    }
+    
+    aggregatePipeLine.push(buildSortMatch(sortFilter));
+    checkForEmptyAggregate(aggregatePipeLine);
+    aggregatePipeLine.push(buildPageNumberFilter(pageNo));
+    // aggregatePipeLine.push(buildPageSizeFilter(pageSize));
+
+    return aggregatePipeLine;
+}
+
 function buildBrandMatch(brands) {
     if (brands.length) {
         return { $match: { brand: { $in: brands } } }
     }
+
+    return null;
 }
 
 function buildPriceRangeMatch(priceRanges) {
@@ -87,12 +109,16 @@ function buildPriceRangeMatch(priceRanges) {
 
         return { $match: { $expr: { $or: $or } } };
     }
+
+    return null;
 }
 
 function buildRatingMatch(rating) {
-    if (rating) {
-        return { $match: { rating: rating.toString() } }
+    if (!isNaN(rating) && rating) {
+        return { $match: { rating: rating.toString() } }        
     }
+
+    return null;
 }
 
 function buildSortMatch(sortFilter) {

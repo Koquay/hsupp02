@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {FormsModule} from '@angular/forms';
 import {MatCheckboxModule} from '@angular/material';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import { BrandRoutingModule } from './brand-routing.module';
 import { BrandComponent } from './brand.component';
@@ -13,7 +14,8 @@ import { BrandSidebarComponent } from './brand-sidebar/brand-sidebar.component';
   imports: [
     CommonModule,
     FormsModule,
-    MatCheckboxModule,    
+    MatCheckboxModule,   
+    NgbModule, 
     BrandRoutingModule,
     SharedModule,
 

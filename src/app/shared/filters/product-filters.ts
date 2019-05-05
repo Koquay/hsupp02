@@ -3,6 +3,7 @@ export class ProductFilters {
     public priceFilters;
     public ratingFilter;
     public pageNo: number = 1;
+    public pageSize:number = 4;
     public sortFilters;
 
     constructor() {

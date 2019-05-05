@@ -1,38 +1,41 @@
 <section id="sidebar">
-  <div class="row">
-    <div class="col"><span id="heading" class="section-header">Top Filters</span></div>
-</div>
-<div class="row mt-3">
-    <div class="col-12">
-        <h6 class="font-weight-bold">{{productFilters.brandFilters.title}}</h6>
-        <ul class="list-unstyled">
-            <li *ngFor="let filter of productFilters.brandFilters.brands" class="mb-2">
-                <mat-checkbox class="" [(ngModel)]="filter.checked" (change)="filterProducts()">
-                    {{filter.name}}
-                </mat-checkbox>
-            </li>
-        </ul>
+    <div class="row">
+        <div class="col"><span id="heading" class="section-header">Top Filters</span></div>
     </div>
-</div>
-<div class="row mt-3">
-    <div class="col-12">
-        <h6 class="font-weight-bold">Price</h6>
-        <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-17"><label class="form-check-label" for="formCheck-17">$100 - $200<br></label></div>
-        <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-18"><label class="form-check-label" for="formCheck-18">$200 - $300<br></label></div>
-        <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-19"><label class="form-check-label" for="formCheck-19">$300 - $400<br></label></div>
-        <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-20"><label class="form-check-label" for="formCheck-20">$400 - $500<br></label></div>
-        <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-21"><label class="form-check-label" for="formCheck-21">$500 - $600<br></label></div>
-        <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-22"><label class="form-check-label" for="formCheck-22">$600 - $700<br></label></div>
-        <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-23"><label class="form-check-label" for="formCheck-23">$700 - $800<br></label></div>
-        <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-24"><label class="form-check-label" for="formCheck-24">$800 - $900<br></label></div>
-        <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-25"><label class="form-check-label" for="formCheck-25">$900 - $1000<br></label></div>
-        <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-26"><label class="form-check-label" for="formCheck-26">$1000 - $2000<br></label></div>
+    <div class="row mt-3">
+        <div class="col-12">
+            <h6 class="font-weight-bold">{{productFilters.brandFilters.title}}</h6>
+            <ul class="list-unstyled">
+                <li *ngFor="let filter of productFilters.brandFilters.brands" class="mb-2">
+                    <mat-checkbox class="" [(ngModel)]="filter.checked" (change)="filterProducts()">
+                        {{filter.name}}
+                    </mat-checkbox>
+                </li>
+            </ul>
+        </div>
     </div>
-</div>
-<div class="row mt-3">
-    <div class="col-12">
-        <h6 class="font-weight-bold">Review Rating</h6>
+    <div class="row mt-3">
+        <div class="col-12">
+            <h6 class="font-weight-bold">{{productFilters.priceFilters.title}}</h6>
+            <ul class="list-unstyled">
+                <li *ngFor="let filter of productFilters.priceFilters.priceRange" class="mb-2">
+                    <mat-checkbox class="" [(ngModel)]="filter.checked" (change)="filterProducts()">
+                        {{filter.label}}
+                    </mat-checkbox>
+                </li>
+            </ul>
+        </div>
     </div>
-    <div class="col"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
-</div>
+    <div class="row mt-3">
+        <h5>{{productFilters.ratingFilter.title}}</h5>
+        <div class="row">
+            <div class="col f-1pt2">
+                <ngb-rating [(rate)]="productFilters.ratingFilter.rating" [max]=5 (rateChange)="filterProducts()">
+                    <ng-template let-fill="fill" let-index="index">
+                        <span class="star2" [class.filled]="fill === 100">&#9733;</span>
+                    </ng-template>
+                </ngb-rating>
+            </div>
+        </div>
+    </div>
 </section>

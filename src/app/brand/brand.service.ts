@@ -28,16 +28,34 @@ export class BrandService {
     let brandFilters = productFilters.brandFilters.brands.filter(brand => {
       if(brand.checked) return brand.name;
     });
-    console.log('brands', brandFilters);
 
     const brands = [];
     for(let brand of brandFilters) {
       brands.push(brand.name)
     }
 
+    let priceFilters = productFilters.priceFilters.priceRange.filter(range => range.checked == true);
+    console.log('priceFilters', priceFilters);
+
+    let priceRanges = [];
+    for(let priceRange of priceFilters) {
+      priceRanges.push(priceRange.range)
+    }
+
+    console.log('pageSize', productFilters.pageSize)
+
+    let sortFilter = productFilters.sortFilters.filters.filter(filter => filter.checked == true);
+
     const filters = JSON.stringify({
-      brands: brands
+      brands: brands,
+      priceRanges:priceRanges,
+      rating:productFilters.ratingFilter.rating,
+      pageNo: productFilters.pageNo,
+      pageSize: productFilters.pageSize,
+      sortFilter: sortFilter[0]
     })
+
+
 
     const queryParams = `?filters=${filters}`;
     console.log('queryParams', queryParams);

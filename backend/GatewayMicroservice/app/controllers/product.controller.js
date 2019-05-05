@@ -5,10 +5,11 @@ const config = require('../config/config');
 module.exports = (app) => {
     app.get("/api/product", async (req, res) => {
         console.log('ALL PRODUCTS')
+        console.log('req', req.query.filters)
         try {
             const response = await axios.get(config.ProductMicroservice.productByFilterUrl,
                 {
-                    params: { filters: req.body }
+                    params: { filters: req.query.filters }
                 })
             res.send(response.data);
         } catch (error) {

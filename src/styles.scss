@@ -1,3 +1,22 @@
 @import "/app/appliances/appliances.component.scss";
 @import "/app/brand/brand.component.scss";
 @import "~@angular/material/prebuilt-themes/hdorange.css";
+
+
+.star {
+    font-size: 1.5rem;
+    color: rgb(204, 204, 204);;
+  }
+  .star2 {
+    font-size: 2rem;
+    color: rgb(204, 204, 204);;
+  }
+  .filled {
+    color: #f96302;
+  }
+  .bad {
+    color: #deb0b0;
+  }
+  .filled.bad {
+    color: #ff1e1e;
+  } 
