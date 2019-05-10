@@ -9,7 +9,8 @@ export class HeaderService {
   constructor() { }
 
   public saveUser(user) {
-    localStorage.setItem('user', user);
+    localStorage.setItem('user', JSON.stringify(user));
+    console.log('user from localstoorage', localStorage.getItem('user'))
     this.isSignedIn = true;
   }
 }

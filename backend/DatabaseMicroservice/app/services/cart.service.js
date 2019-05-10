@@ -32,7 +32,7 @@ exports.addItem = async (email, item, res) => {
     try {
         let cart = await Cart.findOneAndUpdate({email:email},
         {$push: {items: {product:item.product, quantity:item.quantity}}}, {upsert:true, new:true, runValidators:true})
-
+        
         console.log('cart', cart)
                 
         return cart;

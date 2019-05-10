@@ -6,12 +6,14 @@ import { SharedRoutingModule } from './shared-routing.module';
 import { HeaderComponent } from '../../../header/header.component';
 import { FooterComponent } from '../../../footer/footer.component';
 import { PercentSavedPipe } from '../../pipes/percent-saved.pipe';
+import { PaginationComponent } from '../../pagination/pagination.component';
 
 @NgModule({
   declarations: [
     HeaderComponent,
     FooterComponent,
-    PercentSavedPipe
+    PercentSavedPipe,
+    PaginationComponent
   ],
   imports: [
     CommonModule,
@@ -21,7 +23,8 @@ import { PercentSavedPipe } from '../../pipes/percent-saved.pipe';
   exports: [
     HeaderComponent,
     FooterComponent,
-    PercentSavedPipe
+    PercentSavedPipe,
+    PaginationComponent
   ]
 })
 export class SharedModule { }

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {FormsModule} from '@angular/forms';
 import {MatCheckboxModule} from '@angular/material';
+import {MatSelectModule} from '@angular/material/select';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import { BrandRoutingModule } from './brand-routing.module';
@@ -15,6 +16,7 @@ import { BrandSidebarComponent } from './brand-sidebar/brand-sidebar.component';
     CommonModule,
     FormsModule,
     MatCheckboxModule,   
+    MatSelectModule,
     NgbModule, 
     BrandRoutingModule,
     SharedModule,

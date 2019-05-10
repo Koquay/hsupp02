@@ -16,6 +16,14 @@ const routes: Routes = [
     loadChildren: './brand/brand.module#BrandModule'
   },
   {
+    path: 'product',
+    loadChildren: './product/product.module#ProductModule'
+  },
+  {
+    path: 'cart',
+    loadChildren: './cart/cart.module#CartModule'
+  },
+  {
     path: '', pathMatch: 'prefix', redirectTo: 'home'
   },
 ];

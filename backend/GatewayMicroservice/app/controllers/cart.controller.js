@@ -1,4 +1,4 @@
-const CartService = require('../services/cart.service');
+// const CartService = require('../services/cart.service');
 const axios = require('axios');
 const config = require('../config/config');
 
@@ -22,11 +22,13 @@ module.exports = (app) => {
 
     app.patch('/api/cart/add', async (req, res) => {
         console.log('GATEWAY ADD TO CART')
-        let email = req.headers.email;
+        console.log('req.body', req.body)
+        let email = JSON.parse(req.headers.user).email;
         let item = req.body;
         let payload = { email: email, item:item };
 
         console.log('email', email)
+        
         try {
             const response = await axios.post(config.CartMicroservice.cartAddUrl, payload)
 

@@ -17,6 +17,7 @@ const ProductSchema = new Schema({
     images: {black:[], white:[], stainless:[]},
     specifications:{},    
 });
+// mongoose.model('Product', ProductSchema, 'product');
 
 const CartSchema = new Schema({
     email: {
@@ -29,6 +30,10 @@ const CartSchema = new Schema({
             }
         }
     },
+    // items:[
+    //     { type: Schema.Types.ObjectId, ref: 'Product', quantity:Number }
+    // ],
+
     items:[{product:ProductSchema, quantity:Number}],
     createdOn: {
         type:Date,

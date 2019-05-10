@@ -2,6 +2,33 @@
 @import "/app/brand/brand.component.scss";
 @import "~@angular/material/prebuilt-themes/hdorange.css";
 
+/* to change arrow when focused */
+.mat-select:focus:not(.mat-select-disabled).mat-primary .mat-select-arrow {
+  color: #f96302;
+}
+
+/* to change underline when focused */
+.mat-select:focus:not(.mat-select-disabled).mat-primary .mat-select-underline {
+  background-color: #f96302;
+}
+
+/* to change plceholder text when focused */
+.mat-select:focus:not(.mat-select-disabled).mat-primary .mat-select-trigger {
+  color: #f96302;
+}
+
+/* to change selected item color in the select list */
+.mat-primary .mat-option.mat-selected:not(.mat-option-disabled) {
+  color: #f96302;
+}
+
+.ml-pt5 {
+  margin-left: -0.2rem !important;
+}
+
+.border-outset {
+  border: outset;
+}
 
 .star {
     font-size: 1.5rem;

@@ -18,6 +18,28 @@
     </div>
 </section>
 <section id="main-section" class="mt-4 section-padding">
+    <!-- <div class="row mb-3">
+        <div class="col d-xl-flex justify-content-xl-end">
+            <select class="p-1 w-15 border-outset" (change)="sortByProducts($event.target.value)">
+                <option *ngFor="let filter of productFilters.sortFilters.filters" [value]="filter.id">
+                    {{filter.title}}
+                </option>
+            </select>
+        </div>
+    </div> -->
+
+    <div class="row mb-3">
+        <div class="col d-xl-flex justify-content-xl-end">
+            <mat-form-field>
+                <mat-label>Sort By:</mat-label>
+                <mat-select (selectionChange)="sortByProducts($event.value)">
+                    <mat-option *ngFor="let filter of productFilters.sortFilters.filters" [value]="filter.id">
+                        {{filter.title}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+    </div>
     <div class="row">
         <div class="col-2 d-none d-xl-block">
             <app-brand-sidebar></app-brand-sidebar>
@@ -27,13 +49,17 @@
                 <div class="col-12 col-xl-3 mb-3" *ngFor="let product of products">
                     <div class="row">
                         <div class="col-5 col-md-3 col-xl-12">
-                            <img class="img-fluid" src="assets/img/{{product.image[0]}}">
+                            <a [routerLink]="['/product', product._id]">
+                                <img class="img-fluid" src="assets/img/{{product.image[0]}}">
+                            </a>
                         </div>
                         <div class="col-7 col-xl-12" id="prod-desc">
                             <div class="row">
                                 <div class="col">
-                                    <span class="font-weight-bold">{{product.brand}}</span>
-                                    <span class="ml-1">{{product.name}}</span>
+                                    <a [routerLink]="['/product', product._id]">
+                                        <span class="font-weight-bold">{{product.brand}}</span>
+                                        <span class="ml-1">{{product.name}}</span>
+                                    </a>
                                 </div>
                             </div>
                             <div class="row">
@@ -45,9 +71,9 @@
                             <div class="row">
                                 <div class="col">
                                     <ngb-rating [(rate)]="product.rating" [max]=5 [readonly]="readonly">
-                                       <ng-template let-fill="fill" let-index="index">
-                                          <span class="star2" [class.filled]="fill === 100">&#9733;</span>
-                                       </ng-template>
+                                        <ng-template let-fill="fill" let-index="index">
+                                            <span class="star2" [class.filled]="fill === 100">&#9733;</span>
+                                        </ng-template>
                                     </ngb-rating>
                                 </div>
                             </div>
@@ -60,15 +86,15 @@
                                         {{product.price | currency:'USD':'symbol-narrow'}}
                                     </span>
                                     <span class="mr-1 strike-through">
-                                            {{product.list_price | currency:'USD':'symbol-narrow'}}
+                                        {{product.list_price | currency:'USD':'symbol-narrow'}}
                                     </span>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col">
                                     <span class="c-green">
-                                        Save {{product.list_price - product.price | currency:'USD':'symbol-narrow'}} 
-                                        ({{product.price | percentSaved:product.list_price | number:'1.0-0'}}%)
+                                        Save {{product.list_price - product.price | currency:'USD':'symbol-narrow'}} ({{product.price | percentSaved:product.list_price
+                                        | number:'1.0-0'}}%)
                                     </span>
                                 </div>
                             </div>
@@ -78,17 +104,7 @@
             </div>
             <div class="row mt-4">
                 <div class="col d-flex d-xl-flex justify-content-center">
-                    <nav id="pagination">
-                        <ul class="pagination">
-                            <li class="page-item"><a class="page-link" href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
-                            <li class="page-item"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item"><a class="page-link" href="#">4</a></li>
-                            <li class="page-item"><a class="page-link" href="#">5</a></li>
-                            <li class="page-item"><a class="page-link" href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li>
-                        </ul>
-                    </nav>
+                    <app-pagination></app-pagination>
                 </div>
             </div>
         </div>

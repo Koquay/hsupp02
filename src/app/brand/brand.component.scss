@@ -19,6 +19,10 @@ $color-gold: #f96302 ;
     #heading {
         font-size: 1.5rem;        
     }
+
+    select {
+        padding: .3rem 3rem;
+    }
     
     .form-check {
         margin-bottom: .5rem;
@@ -43,6 +47,10 @@ $color-gold: #f96302 ;
         #prod-desc {
             .col {
                 padding: 0;                             
+            }
+
+            a {
+                color: initial;
             }
             
             @media (min-width: 1200px) {

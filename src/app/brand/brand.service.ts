@@ -14,7 +14,8 @@ export class BrandService {
 
   constructor(
     private httpClient:HttpClient
-  ) { }
+  ) {
+   }
 
   public getProducts(productFilters:ProductFilters) : Observable<Product[]> {
     const queryParams = this.createQueryParams(productFilters);
@@ -54,8 +55,6 @@ export class BrandService {
       pageSize: productFilters.pageSize,
       sortFilter: sortFilter[0]
     })
-
-
 
     const queryParams = `?filters=${filters}`;
     console.log('queryParams', queryParams);
