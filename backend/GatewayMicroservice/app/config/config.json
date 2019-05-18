@@ -16,6 +16,8 @@
   },
   "CartMicroservice": {
     "cartUrl":"http://localhost:4240/cart",
-    "cartAddUrl":"http://localhost:4240/cart/add"
+    "cartAddUrl":"http://localhost:4240/cart/add",
+    "cartDeleteUrl":"http://localhost:4240/cart/delete"
+    
   }
 }

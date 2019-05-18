@@ -22,23 +22,23 @@ export class Cart {
 
   export class Delivery {
     firstName:string = 'John';
-    lastName:string = 'John';
+    lastName:string = 'Admin';
     email:string = 'John@John.com';
     phone:string = '905 454 8989';
-    shippingAddress:string = 'John';
+    shippingAddress:string = '40 Angular Place';
     zipCode:string = '12345';
     cityState:string = 'Maynard, MA';
     useAsBillingAddress:boolean = true;
-    deliveryDate:Date = new Date('09/28/18');
-    specialInstruction:string = 'John John John John John John John John ';    
+    deliveryDate:Date = new Date();
+    specialInstruction:string = 'Leave package in driveway Leave package in driveway Leave package in driveway Leave package in driveway Leave package in driveway Leave package in driveway ';    
   }
   
   export class Payment {
     paymentType:string = "Credit Card";
-    cardNumber:string = "JohnJohn";
+    cardNumber:string = "1234567888890";
     expMonth:string = "01-January";
     expYear:string = "2020";
-    cw:string = "Joh";    
+    cw:string = "456";    
   }
   
   export class Order {

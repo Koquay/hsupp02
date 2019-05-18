@@ -1,7 +1,14 @@
+// const orderRoutes = require('../routes/order.routes');
+const userRoutes = require('./user.routes');
+const cartRoutes = require('./cart.routes');
+const productRoutes = require('./product.routes');
+// const indexRoutes = require('./index.routes');
 
 module.exports = (app) => {
-    console.log('CONFIGURING DATABASE CONTROLLER ROUTES');
-    require('../controllers/product.controller')(app);      
-    require('../controllers/user.controller')(app);   
-    require('../controllers/cart.controller')(app);  
+    // app.use('/order', orderRoutes);
+    app.use('/user', userRoutes);
+    app.use('/cart', cartRoutes);
+    app.use('/product', productRoutes);
+    // app.use('/*', indexRoutes);
 }
+

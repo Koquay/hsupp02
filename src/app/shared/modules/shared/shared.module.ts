@@ -7,24 +7,28 @@ import { HeaderComponent } from '../../../header/header.component';
 import { FooterComponent } from '../../../footer/footer.component';
 import { PercentSavedPipe } from '../../pipes/percent-saved.pipe';
 import { PaginationComponent } from '../../pagination/pagination.component';
+import { ConcatCityStatePipe } from '../../pipes/concat-city-state.pipe';
 
 @NgModule({
   declarations: [
     HeaderComponent,
     FooterComponent,
     PercentSavedPipe,
-    PaginationComponent
+    PaginationComponent,
+    ConcatCityStatePipe
   ],
   imports: [
     CommonModule,
     SharedRoutingModule,
-    FormsModule
+    FormsModule,
+
   ],
   exports: [
     HeaderComponent,
     FooterComponent,
     PercentSavedPipe,
-    PaginationComponent
+    PaginationComponent,
+    ConcatCityStatePipe
   ]
 })
 export class SharedModule { }

@@ -1,5 +1,6 @@
 const express = require('express')
 const configureExpressServer = require('./app/server/express.server');
+const configureControllersRoutes = require('./app/routes/controller.routes');
 const configureModels = require('./app/models/models')
 require('dotenv').config()
 
@@ -7,8 +8,7 @@ try {
     let server = express();    
 
     configureExpressServer(server);
-    // // configureControllerRoutes(server);
-    require('./app/controllers/product.controller')(server)
+    configureControllersRoutes(server);
     configureModels();
 
     const PORT = 4220;

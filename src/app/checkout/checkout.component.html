@@ -1,0 +1,330 @@
+<div class="container-fluid bg-eee">
+  <div class="row">
+    <div class="col-12 bg-white col-md-7 col-xl-8 order-1 order-md-0" id="left-col">
+      <section id="header-section">
+        <div class="row d-none d-md-block">
+          <div class="col d-md-flex d-xl-flex align-items-md-center align-items-xl-center"><img class="img-fluid" src="assets/img/hdlogo.jpg"
+              style="width: 4rem;"><span id="page-header" class="ml-1">Secure Checkout</span></div>
+        </div>
+      </section>
+      <form #checkoutForm="ngForm" (ngSubmit)="placeOrder()">
+        <section id="delivery-section">
+          <div class="form-row mt-4">
+            <div class="col"><span class="section-header">Delivery</span></div>
+          </div>
+          <div class="form-row mt-4">
+            <div class="col-12 col-md-6">
+              <mat-form-field class="w-100">
+                <input matInput placeholder="First Name" required name="firstName" [(ngModel)]="delivery.firstName" #firstName="ngModel">
+                <mat-error *ngIf="firstName.invalid">
+                  <div *ngIf="firstName.errors.required">
+                    First name required
+                  </div>
+                </mat-error>
+              </mat-form-field>
+            </div>
+            <div class="col-12 col-md-6">
+              <mat-form-field class="w-100">
+                <input matInput placeholder="Last Name" required name="lastName" [(ngModel)]="delivery.lastName" #lastName="ngModel">
+                <mat-error *ngIf="lastName.invalid">
+                  <div *ngIf="lastName.errors.required">
+                    Last name required
+                  </div>
+                </mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="form-row mt-4">
+            <div class="col-12">
+              <mat-form-field class="w-100">
+                <input matInput placeholder="Email" required name="email" [(ngModel)]="delivery.email" #email="ngModel">
+                <mat-error *ngIf="email.invalid">
+                  <div *ngIf="email.errors.required">
+                    email required
+                  </div>
+                </mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="form-row mt-4">
+            <div class="col-12">
+              <mat-form-field class="w-100">
+                <input matInput placeholder="Phone" required name="phone" [(ngModel)]="delivery.phone" #phone="ngModel">
+                <mat-error *ngIf="phone.invalid">
+                  <div *ngIf="phone.errors.required">
+                    phone required
+                  </div>
+                </mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="form-row mt-4">
+            <div class="col-12">
+              <mat-form-field class="w-100">
+                <input matInput placeholder="Shipping Address" required name="shippingAddress" [(ngModel)]="delivery.shippingAddress" #shippingAddress="ngModel">
+                <mat-error *ngIf="shippingAddress.invalid">
+                  <div *ngIf="shippingAddress.errors.required">
+                    shipping Address required
+                  </div>
+                </mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="form-row mt-4">
+            <div class="col-12 col-md-6">
+              <mat-form-field class="w-100">
+                <input matInput placeholder="Zip Code" required name="zipCode" [(ngModel)]="delivery.zipCode" #zipCode="ngModel">
+                <mat-error *ngIf="zipCode.invalid">
+                  <div *ngIf="zipCode.errors.required">
+                    zipCode required
+                  </div>
+                </mat-error>
+              </mat-form-field>
+            </div>
+            <div class="col-12 col-md-6">
+              <mat-form-field class="w-100">
+                <mat-label>City, State</mat-label>
+                <mat-select name="cityState" [(ngModel)]="delivery.cityState" #cityState="ngModel">
+                  <mat-option *ngFor="let cityState of citiesStates" [value]="cityState | concatCityState">
+                    {{cityState | concatCityState}}
+                  </mat-option>
+                </mat-select>
+                <mat-error *ngIf="cityState==null">You must make a selection</mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="form-row mt-4">
+            <div class="col-12">
+              <mat-checkbox class="" [(ngModel)]="delivery.useAsBillingAddress" checked="true" name="useAsBillingAddress">
+                Use as Billing Address
+              </mat-checkbox>
+            </div>
+          </div>
+          <div class="form-row mt-4">
+            <div class="col-12">
+              <h5>Let's nail down your appliance delivery.</h5>
+            </div>
+          </div>
+          <div class="form-row mt-4">
+            <div class="col-3 col-lg-2">
+              <img class="img-fluid d-block" src="assets/img/pip-icons-delivery-truck.png">
+              <span class="mr-1">{{cartSummary.numberOfItems}}</span>
+              <span>Items</span>
+            </div>
+            <div class="col col-md-6">
+              <mat-form-field>
+                <input matInput [(ngModel)]="delivery.deliveryDate" required name="deliveryDate" #deliveryDate="ngModel" matInput [matDatepicker]="picker"
+                  placeholder="Earliest Available Date" required name="deliveryDate" [min]="minDate">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+                <mat-error *ngIf="deliveryDate.invalid">
+                  <div *ngIf="deliveryDate.errors.required">
+                    Delivery date required
+                  </div>
+                </mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+
+          <div class="form-row mt-4">
+            <div class="col offset-xl-2">
+              <span>We'll call the business day before with your projected 4-hour delivery window.</span>
+              <mat-form-field class="w-75 mt-3">
+                <textarea matInput class="form-control w-100" maxRows="4" minRows="4" [(ngModel)]="delivery.specialInstruction" name="specialInstruction"
+                  #specialInstruction="ngModel" placeholder="Any details that might help us? (Optional)">
+                </textarea>
+              </mat-form-field>
+            </div>
+          </div>
+        </section>
+        <section id="payment-section">
+          <div class="form-row mt-4">
+            <div class="col"><span class="section-header">Payment</span></div>
+          </div>
+          <div class="form-row mt-2">
+            <div class="col">
+
+              <mat-radio-group [(ngModel)]="payment.paymentType" name="paymentType">
+                <mat-radio-button class="" value="PayPal">
+                  <label class="form-check-label" for="formCheck-2">
+                    <img class="img-fluid" src="assets/img/paypal.png" style="width: 5rem;">
+                  </label>
+                </mat-radio-button>
+                <br/>
+                <mat-radio-button class="" value="Credit Card" checked="true" name="">
+                  Credit Card
+                </mat-radio-button>
+              </mat-radio-group>
+
+            </div>
+          </div>
+          <div class="form-row mt-0">
+            <div class="col">
+              <div class="">
+                <mat-form-field class="w-100">
+                  <mat-label>Credit Card Number</mat-label>
+                  <input matInput [(ngModel)]="payment.cardNumber" required name="cardNumber" #cardNumber="ngModel">
+                  <mat-icon matPrefix class="mr-1">credit_card</mat-icon>
+                  <mat-error *ngIf="cardNumber.invalid">
+                    <div *ngIf="cardNumber.errors.required">
+                      Card Number required
+                    </div>
+                  </mat-error>
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-row mt-0">
+            <div class="col-4">
+              <mat-form-field class="w-100">
+                <mat-label>Expiration</mat-label>
+                <mat-select name="expMonth" [(ngModel)]="payment.expMonth" #expMonth="ngModel">
+                  <mat-option *ngFor="let expMonth of expMonths" [value]="expMonth">
+                    {{expMonth.month}}
+                  </mat-option>
+                </mat-select>
+                <mat-error *ngIf="expMonth==null">You must make a selection</mat-error>
+              </mat-form-field>
+            </div>
+            <div class="col-4">
+              <mat-form-field class="w-100">
+                <mat-label> </mat-label>
+                <mat-select name="expYear" [(ngModel)]="payment.expYear" #expYear="ngModel">
+                  <mat-option *ngFor="let expYear of expYears" [value]="expYear">
+                    {{expYear.year}}
+                  </mat-option>
+                </mat-select>
+                <mat-error *ngIf="expYear==null">You must make a selection</mat-error>
+              </mat-form-field>
+            </div>
+            <div class="col-4">
+              <mat-form-field class="w-100">
+                <mat-label>CW (On back)</mat-label>
+                <input matInput [(ngModel)]="payment.cw" required name="cw" #cw="ngModel" maxlength="3" minlength="3">
+                <mat-icon matPrefix class="mr-1">credit_card</mat-icon>
+                <mat-error *ngIf="cw.invalid">
+                  <div *ngIf="cw.errors.required">
+                    CW is required
+                  </div>
+                </mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="form-row mt-4">
+            <div class="col">
+              <button mat-raised-button id="btn-place-order" (click)="placeOrder()"
+                [disabled]="!checkoutForm.form.valid" >
+                Place Order
+              </button>
+            </div>
+          </div>
+        </section>
+      </form>
+    </div>
+    <div class="col" id="right-col">
+      <div class="row d-md-none">
+        <div class="col bg-white right-inner-col">
+          <img class="img-fluid" src="assets/img/hdlogo.jpg" style="width: 4rem;">
+          <span id="page-header" class="ml-1 f-1pt3">Secure Checkout</span></div>
+      </div>
+      <div class="row">
+        <div class="col bg-white right-inner-col">
+          <div class="row d-flex justify-content-between align-items-center">
+            <div class="col-7 d-xl-flex align-items-xl-center">
+              <span class="f-1pt5">
+                <span class="mr-1">Your Order</span>
+                <span class="font-weight-bold d-block d-lg-inline-block">
+                  {{cartSummary.subtotal | currency:'USD':'symbol-narrow'}}
+                </span>
+              </span>
+            </div>
+            <div class="col-5 d-flex justify-content-end">
+              <a class="c-blue" href="#">
+                <span>Edit Cart </span>
+                <span>({{cartSummary.numberOfItems}})</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col bg-white right-inner-col">
+          <div class="row">
+            <div class="col d-flex align-items-center">
+              <img class="img-fluid" src="assets/img/pip-icons-nstallation.png"><span class="ml-2 font-weight-bold">Appliance
+                Delivery</span></div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <hr>
+            </div>
+          </div>
+          <div class="row" *ngFor="let item of cartSummary.cart.items">
+            <div class="col-3">
+              <img class="img-fluid" src="assets/img/{{item.product.image[0]}}">
+            </div>
+            <div class="col">
+              <div class="row">
+                <div class="col">
+                  <span class="mr-1 font-weight-bold">{{item.product.brand}}</span>
+                  <span>{{item.product.name}}</span>
+                </div>
+              </div>
+              <div class="row mt-1">
+                <div class="col">
+                  <span class="mr-1">Qty:</span>
+                  <span>{{item.quantity}}</span></div>
+              </div>
+            </div>
+            <div class="col-2">
+              <span class="m-ln-1">
+                 {{item.product.price * item.quantity | currency:'USD':'symbol-narrow'}}
+              </span></div>
+            <div class="col-12">
+              <hr>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col bg-white right-inner-col">
+          <div class="row font-weight-bold">
+            <div class="col"><span>Subtotal</span></div>
+            <div class="col text-right">
+              <span>{{cartSummary.subtotal | currency:'USD':'symbol-narrow'}}</span>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col"><span>Sales Tax</span></div>
+            <div class="col text-right">
+              <span>{{cartSummary.tax | currency:'USD':'symbol-narrow'}}</span>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col"><span>Discount</span></div>
+            <div class="col text-right">
+              <span>{{cartSummary.discount | currency:'USD':'symbol-narrow'}}</span>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col"><span>Appliance Delivery&nbsp;&nbsp;</span></div>
+            <div class="col text-right"><span>FREE</span></div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <hr>
+            </div>
+          </div>
+          <div class="row font-weight-bold f-1pt3">
+            <div class="col"><span>Total</span></div>
+            <div class="col text-right">
+              <span>{{cartSummary.total | currency:'USD':'symbol-narrow'}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

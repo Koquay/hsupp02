@@ -45,20 +45,20 @@ exports.addItem = async (email, item, res) => {
 
 exports.removeItem = async(itemId, email) => {
     console.log('\n### removeItem ###')
-    console.log('itemId', itemId)
-    console.log('email', email)
+    console.log('DATABASE service removeItem itemId', itemId)
+    console.log('DATABASE service removeItem email', email)   
 
     try {
         let cart = await Cart.findOneAndUpdate({email:email}, 
             {$pull: {items: {_id:itemId}}}, {new:true});
 
+        console.log('DATABASE service removeItem cart', cart)
         return cart;
     } catch(error) {
         console.log('error', error);
         let errMsg = {code: 500, message: 'Problem deleting item from cart.'}
         new ErrorHandler(res, errMsg);
     }
-    return {}
 }
 
 const fetchCartFromCache = async (email) => {

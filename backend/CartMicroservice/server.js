@@ -1,11 +1,10 @@
 const express = require('express')
 const configureExpressServer = require('./app/server/express.server');
-const configureRoutes = require('./app/controllers/cart.controller');
-// const configureModels = require('./app/models/models')
+const configureRoutes = require('./app/routes/controller.routes');
 require('dotenv').config()
 
 try {
-    let server = express();    
+    let server = express();
     configureExpressServer(server);
     configureRoutes(server);
     // configureModels();
