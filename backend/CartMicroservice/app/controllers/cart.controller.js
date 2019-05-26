@@ -59,6 +59,24 @@ exports.delete = (async (req, res) => {
     }
 });
 
+
+exports.deleteAll = (async (req, res) => {
+    try {
+        console.log('CARTMICROSERVICE deleteAll req.body', req.body)
+
+        const cart = await axios.delete(config.DatabaseMicroservice.cartDeletAllUrl,
+            {
+                params: { payload: req.body }
+            });
+
+        console.log('CARTMICROSERVICE cart after delete all', cart.data)
+
+        res.send({});
+
+    } catch (error) {
+        console.log('CARTMICROSERVICE DELETE ALL ERROR', error)
+    }
+});
 // module.exports = (app) => {
 //     console.log('CART MICROSERVICE CONTROLLER');
 

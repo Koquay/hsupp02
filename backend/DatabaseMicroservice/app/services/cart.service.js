@@ -11,7 +11,7 @@ exports.getCart = async (email, res) => {
 
         if (cart == null) {
             cart = await Cart.findOne({ email: email });
-            console.log('CART FROM DATABSE');
+            console.log('CART FROM DATABASE');
             redisClient.setCart(email, cart);
 
             if (cart == null) {
@@ -51,6 +51,24 @@ exports.removeItem = async(itemId, email) => {
     try {
         let cart = await Cart.findOneAndUpdate({email:email}, 
             {$pull: {items: {_id:itemId}}}, {new:true});
+
+        console.log('DATABASE service removeItem cart', cart)
+        return cart;
+    } catch(error) {
+        console.log('error', error);
+        let errMsg = {code: 500, message: 'Problem deleting item from cart.'}
+        new ErrorHandler(res, errMsg);
+    }
+}
+
+
+exports.removeAllItems = async(email) => {
+    console.log('\n### remove all Items ###')
+    console.log('DATABASE service removeItem email', email)   
+
+    try {
+        let cart = await Cart.findOneAndUpdate({email:email}, {items: []},
+            {new:true});
 
         console.log('DATABASE service removeItem cart', cart)
         return cart;

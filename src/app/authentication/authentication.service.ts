@@ -4,6 +4,7 @@ import {tap, map, catchError} from 'rxjs/operators';
 
 import {CartService} from '../cart/cart.service';
 import {Cart} from '../shared/models/data-model';
+import { ErrorService } from '../shared/error/error.service';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,8 @@ export class AuthenticationService {
 
   constructor(
     private httpClient:HttpClient,
-    private cartService:CartService
+    private cartService:CartService,
+    private errorService:ErrorService
   ) { }
 
   public signIn(credentials) {
@@ -25,7 +27,13 @@ export class AuthenticationService {
         console.log('userData', userData);
         this.cartService.setCart(userData.cart);   
         return userData.user;
-      })
+      }),
+      catchError(this.handleError.bind(this))
     )
   }  
+
+  private handleError(error) {
+    console.log('authentication.service#error', error);
+    return this.errorService.handleError(error);
+  }
 }

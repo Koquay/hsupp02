@@ -8,6 +8,7 @@ import { FooterComponent } from '../../../footer/footer.component';
 import { PercentSavedPipe } from '../../pipes/percent-saved.pipe';
 import { PaginationComponent } from '../../pagination/pagination.component';
 import { ConcatCityStatePipe } from '../../pipes/concat-city-state.pipe';
+import { BreadcrumbComponent } from '../../../breadcrumb/breadcrumb.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { ConcatCityStatePipe } from '../../pipes/concat-city-state.pipe';
     FooterComponent,
     PercentSavedPipe,
     PaginationComponent,
-    ConcatCityStatePipe
+    ConcatCityStatePipe,
+    BreadcrumbComponent
   ],
   imports: [
     CommonModule,

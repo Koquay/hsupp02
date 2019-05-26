@@ -1,0 +1,8 @@
+<section class="p-lr-11 mt-2">
+  <span *ngFor="let breadcrumb of breadcrumbsArr; first as isFirst; last as isLast">
+    <a routerLink={{breadcrumb.url}}>
+      <span class="d-inline-block">{{breadcrumb.breadcrumb}}</span>
+      <span *ngIf="!isFirst && !isLast">&nbsp;&nbsp;{{backslash}}&nbsp;&nbsp;</span>
+    </a>
+  </span>
+</section>

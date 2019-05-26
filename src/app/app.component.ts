@@ -7,4 +7,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'hsupp02';
+
+  constructor() {
+    localStorage.removeItem('user');
+    
+    localStorage.removeItem('breadcrumbs')
+    let breadcrumbs = [{breadcrumbs: 'Home', url: '/home'}];
+    localStorage.setItem('breadcrumbs', JSON.stringify(breadcrumbs))    
+  }
 }

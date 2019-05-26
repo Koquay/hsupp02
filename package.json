@@ -12,7 +12,8 @@
     "UserMicroservice": "nodemon backend/UserMicroservice/server.js",
     "ProductMicroservice": "nodemon backend/ProductMicroservice/server.js",
     "DatabaseMicroservice": "nodemon backend/DatabaseMicroservice/server.js",
-    "CartMicroservice": "nodemon backend/CartMicroservice/server.js"
+    "CartMicroservice": "nodemon backend/CartMicroservice/server.js",
+    "OrdertMicroservice": "nodemon backend/OrderMicroservice/server.js"
   },
   "private": true,
   "dependencies": {
@@ -29,6 +30,7 @@
     "@ng-bootstrap/ng-bootstrap": "^4.1.2",
     "axios": "^0.18.0",
     "bcrypt": "^3.0.6",
+    "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.19.0",
     "bootstrap": "^4.3.1",
     "compression": "^1.7.4",
@@ -46,6 +48,7 @@
     "mongoose": "^5.5.4",
     "mongoose-unique-validator": "^2.0.3",
     "morgan": "^1.9.1",
+    "ngx-bootstrap": "^4.2.0",
     "nodemon": "^1.18.11",
     "path": "^0.12.7",
     "redis": "^2.8.0",

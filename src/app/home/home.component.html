@@ -1,5 +1,11 @@
 <div class="container-fluid px-0">
-  <app-header></app-header>
+  <app-header></app-header>  
+  
+  <section id="alert" class="f-1pt2">
+    <alert *ngFor="let alert of alerts" [type]="alert.type" dismissOnTimeout="20000" class="text-center">
+      {{alert.text}}
+    </alert>
+  </section>
 
   <section id="top-section" class="section-padding">
     <div class="row">
@@ -7,7 +13,8 @@
           src="assets/img/mob-hero-grills.jpg" width="100%">
         <div id="main-img">
           <h1 class="mb-0">TODAY IS THE DAY FOR DOING</h1><span class="f-1pt5 d-block">Your Best Spring Starts With A New
-            Grill</span><button class="btn btn-primary button mt-1" type="button"><strong>Shop Grills</strong></button></div>
+            Grill
+          </span><button class="btn btn-primary button mt-1" type="button"><strong>Shop Grills</strong></button></div>
       </div>
       <div class="col-12 col-xl-4" id="top-right-col">
         <div class="row">
@@ -88,7 +95,8 @@
           <div class="card-body">
             <h5 class="card-title font-weight-bold mb-0">You're Shopping Niagara Falls #1287<br></h5><span class="d-block c-green">OPEN
               Until 10:00 pm</span><span class="d-block mt-2">750 Builders Way</span><span class="d-block">Niagara Falls,
-              NY</span><span class="d-block">(716) 236-0761</span>
+              NY
+            </span><span class="d-block">(716) 236-0761</span>
             <div class="d-flex justify-content-between mt-2 pt-2"><a class="c-blue" href="#">Store Details</a><a class="c-blue"
                 href="#">Local Ad</a></div>
           </div>
@@ -105,12 +113,14 @@
                   AM - 11:30 AM</span></div>
               <div class="col-12 col-md-4">
                 <h6 class="font-weight-bold mb-0 mt-4"><strong>Do-It-Herself</strong><br></h6><small class="font-weight-bold"><strong>Pegboard
-                    Shelves</strong><br></small><span class="d-block">Saturday, Apr 27, 2019</span><span class="d-block">10:00
-                  AM - 11:30 AM</span></div>
+                    Shelves
+                  </strong><br></small><span class="d-block">Saturday, Apr 27, 2019</span><span class="d-block">10:00 AM
+                  - 11:30 AM</span></div>
               <div class="col-12 col-md-4">
                 <h6 class="font-weight-bold mb-0 mt-4"><strong>Kids</strong><br></h6><small class="font-weight-bold"><strong>Blooming
-                    Art</strong><br></small><span class="d-block">Saturday, Apr 27, 2019</span><span class="d-block">10:00
-                  AM - 11:30 AM</span></div>
+                    Art
+                  </strong><br></small><span class="d-block">Saturday, Apr 27, 2019</span><span class="d-block">10:00 AM
+                  - 11:30 AM</span></div>
             </div><a class="card-link c-blue d-block mt-4" href="#">See All Upcoming Workshops &amp; Register</a></div>
         </div>
       </div>
@@ -165,6 +175,6 @@
       <div class="col"><img class="img-fluid" src="assets/img/celebration-of-services-18.jpg"></div>
     </div>
   </section>
-  
+
   <app-footer></app-footer>
 </div>

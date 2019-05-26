@@ -5,11 +5,13 @@ import { HomeComponent } from './home/home.component';
 const routes: Routes = [  
   {
     path: 'home',
-    component: HomeComponent
+    component: HomeComponent,
+    data: { breadcrumb: 'Home'}
   },
   {
     path: 'appliances',
-    loadChildren: './appliances/appliances.module#AppliancesModule'
+    loadChildren: './appliances/appliances.module#AppliancesModule',
+    data: { breadcrumb: 'Appliances'}
   },
   {
     path: 'brand',

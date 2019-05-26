@@ -8,7 +8,7 @@ import { tap } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class OrderService {
-  private orderUrl = "/api/order/";
+  private orderAddUrl = "/api/order/add";
 
   constructor(
     private httpClient:HttpClient
@@ -18,7 +18,7 @@ export class OrderService {
     const order = this.createOrder(delivery, payment, cart)
     console.log('orderStr', order)
 
-    return this.httpClient.post<Order>(this.orderUrl, {order: order}).pipe(
+    return this.httpClient.post<Order>(this.orderAddUrl, {order: order}).pipe(
       tap(order => console.log('new order', order))
     )
   }

@@ -1,26 +1,31 @@
 const axios = require('axios');
 const config = require('../config/config');
+const errorHandler = require('../util/error.handler');
 
-exports.signin = (async (req, res) => {        
+exports.signin = (async (req, res) => {
     console.log('USER SIGNIN BEGINS')
     const email = req.body.email;
     console.log('email', email)
 
     try {
         console.log('GATEWAY user', req.body)
+        // throw new Error('xxxxxxxxxxxxxxxxxxx')
+        
         const response = await axios.post(config.UserMicroservice.signinUrl, req.body)
-                    
+
         const response2 = await axios.get(config.CartMicroservice.cartUrl,
             {
                 params: { email: email }
             })
         console.log('cart', response2.data);
 
-        const userData = {user: response.data.user, cart: response2.data}
+        const userData = { user: response.data.user, cart: response2.data }
 
         res.send(userData);
     } catch (error) {
-        throw error;
+        error.statusCode = 533;
+        error.customMessage = 'Problems signing in user!'
+        return errorHandler.handleError('user.controller#signin', res, 500, error);
     }
 });
 
@@ -37,7 +42,7 @@ exports.signin = (async (req, res) => {
 //         try {
 //             console.log('GATEWAY user', req.body)
 //             const response = await axios.post(config.UserMicroservice.signinUrl, req.body)
-                        
+
 //             const response2 = await axios.get(config.CartMicroservice.cartUrl,
 //                 {
 //                     params: { email: email }

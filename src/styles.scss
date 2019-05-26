@@ -22,6 +22,30 @@
   color: #f96302;
 }
 
+.page-wrapper {
+  position: relative;
+
+  .overlay {
+    position: absolute;
+    top: 8.8rem;
+    left: 0;
+    z-index: 10;
+    width: 100vw;
+    height: 500vh;
+    background: rgba(0, 0, 0, 0.5);
+    transition: .4s;
+    
+  }
+
+  #header {
+    z-index: 20;
+  }
+}
+
+
+.f-1pt2 {
+  font-size: 1.2rem;
+}
 .ml-pt5 {
   margin-left: -0.2rem !important;
 }

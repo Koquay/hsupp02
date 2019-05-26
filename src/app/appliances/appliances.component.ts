@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AppliancesService } from './appliances.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-appliances',
@@ -9,9 +10,14 @@ import { AppliancesService } from './appliances.service';
 export class AppliancesComponent implements OnInit {  
 
   constructor(
-    private appliancesService:AppliancesService
-  ) { }
+    private appliancesService:AppliancesService,
+    private router:Router,
+    private activatedRoute:ActivatedRoute
+  ) { 
+    
+  }
 
   ngOnInit() {    
+    
   }  
 }

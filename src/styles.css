@@ -187,13 +187,10 @@
   
   .category {
     position: relative;
+    z-index: 20;
   }
   
-  overlay {
-    position: absolute;
-    z-index: 100;
-  }
-  
+ 
   #top-section #top-right-col {
     margin-top: 2rem;
   }

@@ -21,6 +21,11 @@ module.exports = {
             watch: true
         },
         {
+            name: "Order Microservice",
+            script: './backend/OrderMicroservice/server.js',
+            watch: true
+        },
+        {
             name: "Database Microservice",
             script: './backend/DatabaseMicroservice/server.js',
             watch: true

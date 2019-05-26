@@ -2,6 +2,7 @@
   "DatabaseMicroservice": {    
     "cartUrl":"http://localhost:4230/cart",
     "cartAddUrl":"http://localhost:4230/cart/add",
-    "cartDeleteUrl":"http://localhost:4230/cart/delete"
+    "cartDeleteUrl":"http://localhost:4230/cart/delete",
+    "cartDeletAllUrl":"http://localhost:4230/cart/delete/all"
   }
 }

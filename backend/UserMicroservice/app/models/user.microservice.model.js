@@ -17,6 +17,17 @@ const UserSchema = new mongoose.Schema({
     }    
 });
 
+UserSchema.methods.encryptPassword = async password => {
+    const salt = await bcrypt.genSalt(5);
+    const hash = await bcrypt.hash(password, salt);
+    return hash;
+  };
+  
+  UserSchema.methods.validPassword = async function(candidatePassword) {
+    const result = await bcrypt.compare(candidatePassword, this.password);
+    return result;
+  };
+
 UserSchema.plugin(uniqueValidator);
 
 mongoose.model('User', UserSchema, 'user');
