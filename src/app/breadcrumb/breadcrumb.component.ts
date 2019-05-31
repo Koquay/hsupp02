@@ -17,25 +17,37 @@ export class BreadcrumbComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log('activatedRoute', this.activatedRoute);
     this.configureBreadcrumb();
   }
 
   private configureBreadcrumb() {
-    console.log('activatedRoute', this.activatedRoute)
-    console.log('url', this.router.routerState.snapshot.url)
-    console.log('router', this.router.routerState)
-
     let url = this.router.routerState.snapshot.url;
     
     let breadcrumb:string = this.activatedRoute.routeConfig.data.breadcrumb;
     let breadcrumbs = JSON.parse(localStorage.getItem('breadcrumbs'))
+    let existingBreadcrumb = breadcrumbs.find(bc => bc.breadcrumb == breadcrumb)
+
+    if(!existingBreadcrumb) {
+      breadcrumbs.push({breadcrumb:breadcrumb, url: url});    
+    }
+
+    breadcrumbs = this.buildNewBreadcrumbs(breadcrumbs, breadcrumb);
     
-    console.log('breadcrumbs', breadcrumbs)
-    breadcrumbs.push({breadcrumb:breadcrumb, url: url});    
     localStorage.setItem('breadcrumbs', JSON.stringify(breadcrumbs))
-    console.log('breadcrumbs', breadcrumbs)
     this.breadcrumbsArr = breadcrumbs;
     
+  }
+
+  private buildNewBreadcrumbs(breadcrumbs, breadcrumb) {
+    let newBreadcrumbs = [];
+
+    for(let bc of breadcrumbs) {
+      if(bc.breadcrumb == breadcrumb) {
+        newBreadcrumbs.push(bc);
+        break;
+      }
+      newBreadcrumbs.push(bc);
+    }
+    return newBreadcrumbs;
   }
 }

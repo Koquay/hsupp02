@@ -189,6 +189,10 @@
     position: relative;
     z-index: 20;
   }
+
+  .category-item:hover {   
+    font-weight: 500;
+  }
   
  
   #top-section #top-right-col {

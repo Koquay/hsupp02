@@ -1,4 +1,4 @@
-const ErrorHandler = require('../errors/error-handler')
+const errorHandler = require('../util/error.handler');
 require('../models/cart.model');
 const Cart = require('mongoose').model('Cart');
 const redisClient = require('../cache/redis-cache');
@@ -7,6 +7,8 @@ exports.getCart = async (email, res) => {
     console.log('\n#### cartService#getCart ####');
 
     try {
+        // throw new Error();
+
         let cart = await fetchCartFromCache(email);
 
         if (cart == null) {
@@ -21,9 +23,10 @@ exports.getCart = async (email, res) => {
         }
         return cart;
     } catch (error) {
-        console.log('error', error);
-        let errMsg = {code: 500, message: 'Problem retrieving user cart.'}
-        new ErrorHandler(res, errMsg);
+        error = new Error()
+        error.message = 'Problem retrieving user cart!'
+        error.status = "404";
+        throw error;
     }
 }
 

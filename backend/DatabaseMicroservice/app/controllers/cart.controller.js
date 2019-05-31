@@ -6,11 +6,16 @@ exports.get = (async (req, res) => {
     try {
 
         const cart = await CartService.getCart(req.query.email, res);
-        res.status(200).json(cart);
+        res.status(200).json({cart});
+        return;
 
     } catch (error) {
-        console.log('controller error', error)
-        return res.status(500).send(error)
+        let cart = {};
+        cart.errorMessage = error.message;
+        cart.errorStatus = error.status;
+        console.log('****** CartMicroservice cart.controller **********', cart)
+        res.status(error.status).json({ cart });
+        return;
     }
 });
 

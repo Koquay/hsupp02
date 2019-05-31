@@ -52,3 +52,58 @@
         padding: .5rem 5rem;
     }
 }
+
+$color-orange: #ff6600; 
+
+header {
+    #top-row {
+        background:  #1d2736;
+        color: #d9d9d9;
+        
+        #appointment {
+            background: #ff6600;
+            color: #ffffff;   
+            padding: 1rem 2rem;
+        }
+        
+        @media(min-width:1200px) {
+            padding: 0 11rem;
+        }
+    }    
+    
+    #bottom-row {
+        #social-icon {
+            display: none !important;
+        }
+        
+        .nav-item {
+            color: #424242;
+            
+            a {
+                &:hover {
+                    color: $color-orange;
+                }
+            }
+             
+            .active {
+                color: $color-orange;
+            }
+        }
+        
+        @media(min-width:992px) {
+            #social-icon {
+                display: flex!important;
+            }
+        }
+        
+        
+        
+        @media(min-width:1200px) {
+            padding: 0 11rem;
+        }
+        
+    }
+    
+    
+}
+

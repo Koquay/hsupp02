@@ -11,11 +11,9 @@ exports.get = (async (req, res) => {
                 params: { email: req.query.email }
             })
         res.send(response.data);
-        // console.log('response.data', response.data)
-
-        // res.send({})
     } catch (error) {
-        throw error;
+        console.log('CartMicroservice error.response.data', error.response.data)
+        res.send(error.response.data)   
     }
 });
 

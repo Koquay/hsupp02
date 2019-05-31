@@ -12,7 +12,7 @@ export class AppComponent {
     localStorage.removeItem('user');
     
     localStorage.removeItem('breadcrumbs')
-    let breadcrumbs = [{breadcrumbs: 'Home', url: '/home'}];
+    let breadcrumbs = [{breadcrumb: 'Home', url: '/home'}];
     localStorage.setItem('breadcrumbs', JSON.stringify(breadcrumbs))    
   }
 }

@@ -22,13 +22,23 @@ export class AuthenticationService {
   public signIn(credentials) {
     console.log('credentials', credentials);
 
-    return this.httpClient.post<{user:{}, cart:Cart}>(this.userSigninUrl, credentials).pipe(
+    return this.httpClient.post<{user, cart}>(this.userSigninUrl, credentials).pipe(
       map(userData => {
-        console.log('userData', userData);
+        
+
+        if(userData.user.errorMessage) {
+          console.log('userData', userData);
+          this.errorService.handleError(userData.user);
+        }
+        else if(userData.cart.errorMessage) {
+          console.log('userData', userData);
+          this.errorService.handleError(userData.cart);
+        }
+        
         this.cartService.setCart(userData.cart);   
         return userData.user;
       }),
-      catchError(this.handleError.bind(this))
+      // catchError(this.handleError.bind(this))
     )
   }  
 

@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AppliancesComponent } from './appliances.component';
+import { AuthenticationGuard } from '../authentication/authentication.guard';
 
 const routes: Routes = [
   {
     path: '',
     component: AppliancesComponent,
+    // canActivate: [AuthenticationGuard],
     data: { breadcrumb: 'Appliances'}
   }
 ];

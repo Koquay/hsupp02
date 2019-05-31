@@ -11,9 +11,11 @@ exports.signin = (async (req, res) => {
             {
                 params: { user: req.body }
             })
+        console.log('UserMicroservice response.data', response.data)
         res.send(response.data);
     } catch (error) {
-        throw error;
+        console.log('UserMicroservice error.response.data', error.response.data)
+        res.send(error.response.data)        
     }
 });
 

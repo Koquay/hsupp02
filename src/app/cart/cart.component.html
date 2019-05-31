@@ -7,16 +7,19 @@
                     <div class="col-3 col-20perc"><img class="img-fluid" src="assets/img/thd_cc.png"></div>
                     <div class="col-7">
                         <h6 class="font-weight-bold">Pay $254 per Month* When You Use Your Card</h6>
-                        <p class="f-pt9">$254 per month* suggested payments with 6 months financing on this $1518.66 purchase when you use The Home Depot Consumer Credit Card. View Details</p>
+                        <p class="f-pt9">$254 per month* suggested payments with 6 months financing on this $1518.66 purchase
+                            when you use The Home Depot Consumer Credit Card. View Details</p>
                     </div>
-                    <div class="col"><small>Don't have a card?</small><button class="btn btn-primary button" type="button"><strong>Apply Now</strong></button></div>
+                    <div class="col"><small>Don't have a card?</small><button class="btn btn-primary button" type="button"><strong>Apply
+                                Now</strong></button></div>
                 </div>
             </section>
             <div class="row mt-5">
                 <div class="col"><span class="section-header">Shopping Cart</span></div>
             </div>
             <div class="row mt-2">
-                <div class="col" id="free-section"><button class="btn btn-primary button d-xl-none mb-3 mt-2" id="btn-checkout" type="button">Checkout</button>
+                <div class="col" id="free-section"><button class="btn btn-primary button d-xl-none mb-3 mt-2" id="btn-checkout"
+                        type="button">Checkout</button>
                     <p class="mb-1">FREE Shipping on eligible items. See Details</p>
                     <p class="mb-1">Free delivery on appliance purchases of $396 or more. See Details<br></p>
                     <p class="mb-1 d-none d-xl-block">All appliances will be delivered to ZIP code:&nbsp;02072</p>
@@ -34,19 +37,19 @@
             </section>
             <div class="row d-flex justify-content-between mt-3 mt-md-3" *ngFor="let item of cartSummary.cart.items">
                 <div class="col-4 col-md-2">
-                  <img class="img-fluid" src="assets/img/{{item.product.image[0]}}">
+                    <img class="img-fluid" src="assets/img/{{item.product.image[0]}}">
                 </div>
                 <div class="col-8 col-md-3">
                     <div class="row">
                         <div class="col">
-                          <span class="mr-1 font-weight-bold">{{item.product.brand}}</span>
-                          <span>{{item.product.name}}</span>
+                            <span class="mr-1 font-weight-bold">{{item.product.brand}}</span>
+                            <span>{{item.product.name}}</span>
                         </div>
                     </div>
                     <div class="row mt-2">
                         <div class="col">
-                          <span>Model #</span>
-                          <span>{{item.product.model}}</span>
+                            <span>Model #</span>
+                            <span>{{item.product.model}}</span>
                         </div>
                     </div>
                 </div>
@@ -56,42 +59,40 @@
                         <div class="col">
                             <div class="row">
                                 <div class="col-4 d-flex flex-column align-items-sm-center col-xl-12">
-                                  <span class="font-weight-bold d-md-none">Qty</span>
-                                  <input class="d-lg-flex text-center" type="text" 
-                                    style="height: 2rem;width: 3rem;" [(ngModel)]="item.quantity">
+                                    <span class="font-weight-bold d-md-none">Qty</span>
+                                    <input class="d-lg-flex text-center" type="text" style="height: 2rem;width: 3rem;" [(ngModel)]="item.quantity">
                                 </div>
                                 <div class="col-4 col-xl-12 ml-5 m-md-0">
-                                  <span class="font-weight-bold d-md-none">Price</span>
+                                    <span class="font-weight-bold d-md-none">Price</span>
                                     <div class="row">
                                         <div class="col text-center">
-                                          <span>{{item.product.price | currency:'USD':'symbol-narrow'}}</span>
+                                            <span>{{item.product.price | currency:'USD':'symbol-narrow'}}</span>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col text-center">
-                                          <span class="strike-through">
-                                            {{item.product.list_price | currency:'USD':'symbol-narrow'}}
-                                          </span>
+                                            <span class="strike-through">
+                                                {{item.product.list_price | currency:'USD':'symbol-narrow'}}
+                                            </span>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col text-center c-green">
-                                          <span class="mr-1">Save</span>
-                                          <span>
-                                              {{item.product.price | percentSaved:item.product.list_price
-                                                | number:'1.0-0'}}%
-                                          </span>
+                                            <span class="mr-1">Save</span>
+                                            <span>
+                                                {{item.product.price | percentSaved:item.product.list_price | number:'1.0-0'}}%
+                                            </span>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="col text-right">
-                          <span class="font-weight-bold d-md-none d-block">Total</span>
-                          <span>{{item.product.price * item.quantity | currency:'USD':'symbol-narrow'}}<br></span>
-                          <a (click)="deleteItem(item._id)">
-                            <i class="fa fa-trash-o c-orange"></i>
-                          </a>
+                            <span class="font-weight-bold d-md-none d-block">Total</span>
+                            <span>{{item.product.price * item.quantity | currency:'USD':'symbol-narrow'}}<br></span>
+                            <a (click)="deleteItem(item._id)">
+                                <i class="fa fa-trash-o c-orange"></i>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -99,31 +100,31 @@
                     <hr>
                 </div>
             </div>
-            
+
             <div class="row">
                 <div class="col offset-md-7">
                     <div class="row">
                         <div class="col d-flex justify-content-between font-weight-bold">
-                          <span>Subtotal</span>
-                          <span>{{cartSummary.subtotal | currency:'USD':'symbol-narrow'}}</span>
+                            <span>Subtotal</span>
+                            <span>{{cartSummary.subtotal | currency:'USD':'symbol-narrow'}}</span>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col d-flex justify-content-between">
-                          <span>Appliance Delivery </span>
-                          <span>FREE</span>
+                            <span>Appliance Delivery </span>
+                            <span>FREE</span>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col d-flex justify-content-between">
-                          <span>Sales Tax</span>
-                          <span>{{cartSummary.tax | currency:'USD':'symbol-narrow'}}</span>
+                            <span>Sales Tax</span>
+                            <span>{{cartSummary.tax | currency:'USD':'symbol-narrow'}}</span>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col d-flex justify-content-between">
-                          <span>Discount</span>
-                          <span>{{cartSummary.discount | currency:'USD':'symbol-narrow'}}</span>
+                            <span>Discount</span>
+                            <span>{{cartSummary.discount | currency:'USD':'symbol-narrow'}}</span>
                         </div>
                     </div>
                     <div class="row">
@@ -133,22 +134,22 @@
                     </div>
                     <div class="row">
                         <div class="col d-flex justify-content-between font-weight-bold f-1pt1">
-                          <span>Total</span>
-                          <span>{{cartSummary.total | currency:'USD':'symbol-narrow'}}</span>
+                            <span>Total</span>
+                            <span>{{cartSummary.total | currency:'USD':'symbol-narrow'}}</span>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col d-flex justify-content-between c-green">
-                          <span>You Saved</span>
-                          <span>{{cartSummary.discount | currency:'USD':'symbol-narrow'}}</span>
+                            <span>You Saved</span>
+                            <span>{{cartSummary.discount | currency:'USD':'symbol-narrow'}}</span>
                         </div>
                     </div>
                     <div class="row mt-4">
                         <div class="col">
-                          <button class="btn btn-primary button w-100" type="button" [routerLink]="['/checkout']">
-                          Checkout
-                        </button>
-                      </div>
+                            <button class="btn btn-primary button w-100" type="button" [routerLink]="['/checkout']">
+                                Checkout
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -166,25 +167,25 @@
                     </div>
                     <div class="row">
                         <div class="col d-flex justify-content-between font-weight-bold">
-                          <span>Subtotal</span>
-                          <span>{{cartSummary.subtotal | currency:'USD':'symbol-narrow'}}</span>
+                            <span>Subtotal</span>
+                            <span>{{cartSummary.subtotal | currency:'USD':'symbol-narrow'}}</span>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col d-flex justify-content-between">
-                          <span>Appliance Delivery </span><span>FREE</span>
+                            <span>Appliance Delivery </span><span>FREE</span>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col d-flex justify-content-between">
-                          <span>Sales Tax</span>
-                          <span>{{cartSummary.tax | currency:'USD':'symbol-narrow'}}</span>
+                            <span>Sales Tax</span>
+                            <span>{{cartSummary.tax | currency:'USD':'symbol-narrow'}}</span>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col d-flex justify-content-between">
-                          <span>Discount</span>
-                          <span>{{cartSummary.discount | currency:'USD':'symbol-narrow'}}</span>
+                            <span>Discount</span>
+                            <span>{{cartSummary.discount | currency:'USD':'symbol-narrow'}}</span>
                         </div>
                     </div>
                     <div class="row">
@@ -194,19 +195,19 @@
                     </div>
                     <div class="row">
                         <div class="col d-flex justify-content-between font-weight-bold f-1pt1">
-                          <span>Total</span>
-                          <span>{{cartSummary.total | currency:'USD':'symbol-narrow'}}</span>
+                            <span>Total</span>
+                            <span>{{cartSummary.total | currency:'USD':'symbol-narrow'}}</span>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col d-flex justify-content-between c-green">
-                          <span>You Saved</span>
-                          <span>{{cartSummary.discount | currency:'USD':'symbol-narrow'}}</span>
+                            <span>You Saved</span>
+                            <span>{{cartSummary.discount | currency:'USD':'symbol-narrow'}}</span>
                         </div>
                     </div>
                     <div class="row mt-4">
                         <div class="col">
-                          <button class="btn btn-primary button w-100" type="button" [routerLink]="['/checkout']">Checkout</button>
+                            <button class="btn btn-primary button w-100" type="button" [routerLink]="['/checkout']">Checkout</button>
                         </div>
                     </div>
                 </div>

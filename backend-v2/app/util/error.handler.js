@@ -1,7 +1,7 @@
 
 
 exports.handleError = (err, res) => {
-    // console.log('error', err);
+    console.log('*********** error.handler ***********');
     let message = {
         errmsg: err.errmsg,
         errcode: err.code

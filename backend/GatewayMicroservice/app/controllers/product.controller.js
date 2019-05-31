@@ -32,7 +32,7 @@ exports.getById = (async (req, res) => {
         res.send(response.data);
     } catch (error) {
         error.statusCode = 533;
-        error.customMessage = 'Problems getting product from database!'
+        error.customMessage = 'Problems getting product by ID'
         return errorHandler.handleError('product.controller#getById', res, 500, error);
     }
 });

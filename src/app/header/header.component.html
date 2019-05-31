@@ -40,7 +40,7 @@
             <span>Welcome <strong>{{credentials.name}}</strong></span>
           </a>
 
-          <a [routerLink]="['/cart']" class="d-flex ml-lg-5" href="#">
+          <a [routerLink]="['/cart']" class="d-flex ml-lg-5 c-blue" href="#">
             <span class="d-none d-lg-inline">Cart</span>
             <i class="fa fa-cart-plus ml-1"></i>
             <span class="badge badge-primary d-flex d-sm-flex justify-content-center m-tn-1">
@@ -63,7 +63,6 @@
                     <ul class="list-unstyled visibility-hidden categories mt-0 bg-white px-4">
                       <li class="mb-1 category-item">
                         <a [routerLink]="['/appliances']">Appliances</a>
-                      </li>
                       <li class="mb-1">Bath &amp; Faucets</li>
                       <li class="mb-1">Blinds &amp; Window Treatment</li>
                       <li class="mb-1">Building Materials</li>
@@ -100,7 +99,7 @@
 
     <section id="marquee">
       <div class="row d-none d-xl-block">
-        <div class="col text-center"><span>FREE DELIVERY</span><span id="marquee-detail" class="ml-2">Over one million online
+        <div class="col text-center"><span>{{marquee}}</span><span id="marquee-detail" class="ml-2">Over one million online
             items eligible.</span><i class="fa fa-chevron-right ml-1"></i></div>
       </div>
     </section>

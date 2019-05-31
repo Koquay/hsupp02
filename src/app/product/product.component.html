@@ -1,18 +1,7 @@
 <app-header></app-header>
 
-<section id="breadcrumb" class="section-padding py-0">
-  <div class="row">
-    <div class="col px-0">
-      <ol class="breadcrumb bg-white mb-0">
-        <li class="breadcrumb-item"><a href="#"><span>Home</span></a></li>
-        <li class="breadcrumb-item"><a href="#"><span>Appliances</span></a></li>
-        <li class="breadcrumb-item"><a href="#"><span>Ranges</span></a></li>
-      </ol>
-    </div>
-  </div>
-</section>
-<section id="banner-section" class="section-padding py-0" *ngIf="product">
-  <div class="row d-none d-md-block">
+<section id="banner-section" class="section-padding py-0 mt-2" *ngIf="product">
+  <div class="row d-none d-md-block my-1">
     <div class="col"><span>
         <span>Model #</span>
         <span class="ml-1">{{product.model}}</span>
@@ -27,7 +16,7 @@
       </span>
     </div>
   </div>
-  <div class="row">
+  <div class="row mt-1">
     <div class="col-12 d-md-flex justify-content-around col-md-12 col-xl-2 order-3 order-xl-0">
       <div class="row d-flex d-md-flex justify-content-center">
         <mat-card *ngFor="let image of displayImages" class="col-3 col-xl-12 mb-4">

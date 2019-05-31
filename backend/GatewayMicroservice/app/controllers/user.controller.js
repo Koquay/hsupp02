@@ -9,17 +9,32 @@ exports.signin = (async (req, res) => {
 
     try {
         console.log('GATEWAY user', req.body)
-        // throw new Error('xxxxxxxxxxxxxxxxxxx')
         
         const response = await axios.post(config.UserMicroservice.signinUrl, req.body)
+
+        // let error = response.data.error.errorMessage;
+
+        if(response.data.user.errorMessage) {
+            console.log('GATEWAY USERCONTROLLER RESPONSE', response.data.user)            
+            const userData = { user: response.data.user, cart: {} }
+            res.send(userData); 
+            return;
+        }       
 
         const response2 = await axios.get(config.CartMicroservice.cartUrl,
             {
                 params: { email: email }
             })
-        console.log('cart', response2.data);
+        console.log('response2.data cart', response2.data);    
 
-        const userData = { user: response.data.user, cart: response2.data }
+        if(response2.data.cart.errorMessage) {
+            console.log('GATEWAY USERCONTROLLER RESPONSE 2', response2.data.cart)            
+            const userData = { user: response.data.user, cart: response2.data.cart }
+            res.send(userData);
+            return;
+        }
+
+        const userData = { user: response.data.user, cart: response2.data.cart }
 
         res.send(userData);
     } catch (error) {

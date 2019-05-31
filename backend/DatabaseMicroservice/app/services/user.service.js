@@ -2,7 +2,7 @@
 require('../models/user.microservice.model');
 const User = require('mongoose').model('User');
 const PasswordUtil = require('../util/password.util');
-const ErrorHandler = require('../errors/error-handler')
+const errorHandler = require('../util/error.handler');
 
 exports.signin = async (res, user) => {
     console.log('### user.service#signin')
@@ -15,8 +15,14 @@ exports.signin = async (res, user) => {
         let existingUser = await User.findOne({ email: user.email });
         console.log('found user: ', existingUser)
 
+        // existingUser = null;
+
         if (existingUser == null) {
-            throw new Error('User is not regstered!');
+            console.log('************* existingUser is null')
+            let error = new Error()
+            error.message = 'User is not registered!'
+            error.status = "404";
+            throw error;
         }
 
         if (await PasswordUtil.check(user.password, existingUser.password) == true) {
@@ -26,7 +32,8 @@ exports.signin = async (res, user) => {
             return credentials;
         }
     } catch (error) {
-        new ErrorHandler(res, error);
+        console.log('ERROR CAUGHT IN SIGNIN ERROR BLOCK')
+        throw error;
     }
 }
 
