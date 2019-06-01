@@ -30,6 +30,10 @@ const routes: Routes = [
     loadChildren: './checkout/checkout.module#CheckoutModule'
   },
   {
+    path: 'order',
+    loadChildren: './order/order.module#OrderModule'
+  },
+  {
     path: '', pathMatch: 'prefix', redirectTo: 'home'
   },
 ];

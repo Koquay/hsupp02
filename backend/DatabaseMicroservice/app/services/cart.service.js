@@ -32,7 +32,10 @@ exports.getCart = async (email, res) => {
 
 exports.addItem = async (email, item, res) => {
     console.log('\n*** CartService#add ***')
+    
     try {
+        // throw new Error();
+
         let cart = await Cart.findOneAndUpdate({email:email},
         {$push: {items: {product:item.product, quantity:item.quantity}}}, {upsert:true, new:true, runValidators:true})
         
@@ -40,9 +43,10 @@ exports.addItem = async (email, item, res) => {
                 
         return cart;
     } catch(error) {
-        console.log('error', error);
-        let errMsg = {code: 500, message: 'Problem adding item to cart.'}
-        new ErrorHandler(res, errMsg);
+        error = new Error()
+        error.message = 'Problem adding item to cart.'
+        error.status = "400";
+        throw error;
     }    
 }
 

@@ -12,7 +12,7 @@ exports.get = (async (req, res) => {
             })
         res.send(response.data);
     } catch (error) {
-        console.log('CartMicroservice error.response.data', error.response.data)
+        console.log('Cart Controller GET error.response.data', error.response.data)
         res.send(error.response.data)   
     }
 });
@@ -35,7 +35,8 @@ exports.add = (async (req, res) => {
         console.log('response.data', response.data)
 
     } catch (error) {
-        throw error;
+        console.log('Cart Controller ADD error.response.data', error.response.data)
+        res.send(error.response.data)  
     }
 });
 

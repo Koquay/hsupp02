@@ -3,9 +3,10 @@
     <div class="col">
       <h6 class="font-weight-bold">{{appliancesSidebarLinks.appliancesBrand.title}}</h6>
       <ul class="list-unstyled">
-        <li *ngFor="let link of appliancesSidebarLinks.appliancesBrand.links">
-          <a [routerLink]="['/brand', link]">
+        <li *ngFor="let link of appliancesSidebarLinks.appliancesBrand.links; index as indx">
+          <a [routerLink]="['/brand', link]">            
             {{link}}
+            <i class="fa fa-check" *ngIf="indx < 3"></i>
           </a>
         </li>
       </ul>

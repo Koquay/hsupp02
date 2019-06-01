@@ -17,7 +17,8 @@ export class Product {
 
 export class Cart {
     email: string;
-    items: [{ product: Product, quantity: number }]
+    items: [{ product: Product, quantity: number }];
+    errorMessage:any;
   }
 
   export class Delivery {
@@ -42,7 +43,11 @@ export class Cart {
   }
   
   export class Order {
-    constructor(public delivery:Delivery, public payment:Payment, public orderItems:OrderItem[]) {}    
+    constructor(      
+      public delivery:Delivery, 
+      public payment:Payment, 
+      public orderItems:OrderItem[],
+      public _id?:string) {}    
   }
   
   export class OrderItem {

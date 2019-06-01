@@ -4,6 +4,7 @@ import { tap } from 'rxjs/operators';
 import {of} from 'rxjs/observable/of';
 
 import { Cart, CartSummary, Product } from '../shared/models/data-model';
+import { ErrorService } from '../shared/error/error.service';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,8 @@ export class CartService {
   private cartDeleteUrl = '/api/cart/delete/';
 
   constructor(
-    private httpClient: HttpClient
+    private httpClient: HttpClient,
+    private errorService:ErrorService
   ) {
     this.cart = new Cart();
     this.cartSummary = new CartSummary();
@@ -26,7 +28,11 @@ export class CartService {
     return this.httpClient.patch<Cart>(this.cartAddUrl, { product: product, quantity:quantity }).pipe(
       tap(cart => {
         console.log('cart', cart);
-        this.setCart(cart);
+        if(cart.errorMessage) {
+          this.errorService.handleError(cart);
+        } else {
+          this.setCart(cart);
+        }        
       })
     )
   }
@@ -40,7 +46,7 @@ export class CartService {
     )
   }
 
-  public setCart(cart: Cart) {
+  public setCart(cart) {
     this.cart = cart;
     this.numberOfItems = cart.items.length;
   }

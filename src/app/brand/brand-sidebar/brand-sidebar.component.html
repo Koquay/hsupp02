@@ -4,11 +4,13 @@
     </div>
     <div class="row mt-3">
         <div class="col-12">
-            <h6 class="font-weight-bold">{{productFilters.brandFilters.title}}</h6>
+            <h5 class="font-weight-bold">{{productFilters.brandFilters.title}}
+                <i class="fa fa-check"></i>
+            </h5>
             <ul class="list-unstyled">
                 <li *ngFor="let filter of productFilters.brandFilters.brands" class="mb-2">
-                    <mat-checkbox class="" [(ngModel)]="filter.checked" (change)="filterProducts()">
-                        {{filter.name}}
+                    <mat-checkbox class="" [(ngModel)]="filter.checked" (change)="filterProducts()" >
+                        {{filter.name}}                        
                     </mat-checkbox>
                 </li>
             </ul>
@@ -16,18 +18,22 @@
     </div>
     <div class="row mt-3">
         <div class="col-12">
-            <h6 class="font-weight-bold">{{productFilters.priceFilters.title}}</h6>
+            <h5 class="font-weight-bold">{{productFilters.priceFilters.title}}
+                    <i class="fa fa-check"></i>
+            </h5>            
             <ul class="list-unstyled">
                 <li *ngFor="let filter of productFilters.priceFilters.priceRange" class="mb-2">
                     <mat-checkbox class="" [(ngModel)]="filter.checked" (change)="filterProducts()">
-                        {{filter.label}}
+                        {{filter.label}}                        
                     </mat-checkbox>
                 </li>
             </ul>
         </div>
     </div>
     <div class="row mt-3">
-        <h5>{{productFilters.ratingFilter.title}}</h5>
+        <h5 class="mb-0">{{productFilters.ratingFilter.title}}
+            <i class="fa fa-check"></i>
+        </h5>        
         <div class="row">
             <div class="col f-1pt2">
                 <ngb-rating [(rate)]="productFilters.ratingFilter.rating" [max]=5 (rateChange)="filterProducts()">

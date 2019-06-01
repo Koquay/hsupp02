@@ -23,7 +23,7 @@ export class AuthenticationGuard implements CanActivate  {
 
   private handleError(error) {
     console.log('error', error);
-    this.errorService.handleError(error);
+    this.errorService.handleError1(error);
     return false;
   }
 }

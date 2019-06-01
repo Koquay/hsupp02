@@ -20,17 +20,17 @@ export class AppliancesSidebarService {
         title: 'Appliances Brands',
         links: [
           "Amana",
-          "Bosch",
-          "Electrolux",
+          "Whirlpool",
           "Frigidaire",
+          "Bosch",          
+          "Electrolux",          
           "GE",
           "Hotpoint",
           "Haier",
           "KitchenAid",
           "LG",
           "Maytag",
-          "Samsung",
-          "Whirlpool",
+          "Samsung",          
         ]
       },
 

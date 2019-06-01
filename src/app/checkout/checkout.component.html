@@ -144,7 +144,7 @@
           <div class="form-row mt-2">
             <div class="col">
 
-              <mat-radio-group [(ngModel)]="payment.paymentType" name="paymentType">
+              <mat-radio-group [(ngModel)]="payment.paymentType" name="paymentType">                
                 <mat-radio-button class="" value="PayPal">
                   <label class="form-check-label" for="formCheck-2">
                     <img class="img-fluid" src="assets/img/paypal.png" style="width: 5rem;">
@@ -213,6 +213,7 @@
           </div>
           <div class="form-row mt-4">
             <div class="col">
+              <i class="fa fa-check"></i>
               <button mat-raised-button id="btn-place-order" 
                 [disabled]="!checkoutForm.form.valid" >
                 Place Order

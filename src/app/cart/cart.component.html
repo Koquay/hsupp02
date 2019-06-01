@@ -1,5 +1,10 @@
 <app-header></app-header>
 <section id="main-section" class="section-padding">
+    <!-- <section id="alert" class="f-1pt2">
+        <alert *ngFor="let alert of alerts" [type]="alert.type" dismissOnTimeout="20000" class="text-center">
+            {{alert.text}}
+        </alert>
+    </section> -->
     <div class="row">
         <div class="col-12 col-xl-8" id="left-col">
             <section class="d-none d-xl-block">
@@ -11,7 +16,8 @@
                             when you use The Home Depot Consumer Credit Card. View Details</p>
                     </div>
                     <div class="col"><small>Don't have a card?</small><button class="btn btn-primary button" type="button"><strong>Apply
-                                Now</strong></button></div>
+                                Now
+                            </strong></button></div>
                 </div>
             </section>
             <div class="row mt-5">
@@ -92,6 +98,7 @@
                             <span>{{item.product.price * item.quantity | currency:'USD':'symbol-narrow'}}<br></span>
                             <a (click)="deleteItem(item._id)">
                                 <i class="fa fa-trash-o c-orange"></i>
+                                <i class="fa fa-check"></i>
                             </a>
                         </div>
                     </div>
@@ -146,6 +153,7 @@
                     </div>
                     <div class="row mt-4">
                         <div class="col">
+                            <i class="fa fa-check"></i>
                             <button class="btn btn-primary button w-100" type="button" [routerLink]="['/checkout']">
                                 Checkout
                             </button>
@@ -207,6 +215,7 @@
                     </div>
                     <div class="row mt-4">
                         <div class="col">
+                            <i class="fa fa-check"></i>
                             <button class="btn btn-primary button w-100" type="button" [routerLink]="['/checkout']">Checkout</button>
                         </div>
                     </div>

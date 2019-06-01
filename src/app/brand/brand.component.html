@@ -10,9 +10,12 @@
 </section>
 <section id="main-section" class="mt-4 section-padding">
     <div class="row mb-3">
-        <div class="col d-xl-flex justify-content-xl-end">
+        <div class="col d-xl-flex justify-content-xl-end">            
             <mat-form-field>
-                <mat-label>Sort By:</mat-label>
+                <mat-label>
+                    <i class="fa fa-check"></i>
+                    Sort By:
+                </mat-label>
                 <mat-select (selectionChange)="sortByProducts($event.value)">
                     <mat-option *ngFor="let filter of productFilters.sortFilters.filters" [value]="filter.id">
                         {{filter.title}}
@@ -31,6 +34,7 @@
                     <div class="row">
                         <div class="col-5 col-md-3 col-xl-12">
                             <a [routerLink]="['/product', product._id]">
+                                <i class="fa fa-check"></i>
                                 <img class="img-fluid" src="assets/img/{{product.image[0]}}">
                             </a>
                         </div>
@@ -38,6 +42,7 @@
                             <div class="row">
                                 <div class="col">
                                     <a [routerLink]="['/product', product._id]">
+                                        <i class="fa fa-check"></i>
                                         <span class="font-weight-bold">{{product.brand}}</span>
                                         <span class="ml-1">{{product.name}}</span>
                                     </a>
