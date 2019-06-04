@@ -1,6 +1,37 @@
+$color-blue: #3e7697;
+$color-gold: #f96302 ;
+
+#mobile-nav {
+    padding: 0 1rem;
+    transition: all .5s;
+   
+    .multi-level, .item ul {
+        display: none;
+    }
+    
+    #menu:checked ~ .multi-level, .item input:checked ~ ul {
+        display: block;   
+    }
+
+    li a {
+        color: $color-blue;
+    }
+    
+    input {
+        display: none;        
+    }
+    
+    i {
+        font-size: 1.4rem;
+        color: $color-gold; 
+    }
+    
+}
+
 .category-item {   
 
     &:hover {
         font-weight: 500;
     }
 }
+

@@ -23,14 +23,13 @@ import { BreadcrumbComponent } from '../../../breadcrumb/breadcrumb.component';
     CommonModule,
     SharedRoutingModule,
     FormsModule,
-
   ],
   exports: [
     HeaderComponent,
     FooterComponent,
     PercentSavedPipe,
     PaginationComponent,
-    ConcatCityStatePipe
+    ConcatCityStatePipe,    
   ]
 })
 export class SharedModule { }

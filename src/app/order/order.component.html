@@ -1,3 +1,147 @@
-<p>
-  order works!
-</p>
+<app-header></app-header>
+
+<section id="info-section" class="section-padding">
+  <div class="row d-xl-flex mt-2">
+    <div class="col d-xl-flex">
+      <h4>Order Confirmation</h4>
+    </div>
+  </div>
+  <div class="row d-xl-flex">
+    <div class="col d-xl-flex">
+      <span>Order #</span>
+      <span class="ml-2">{{order._id}}</span></div>
+  </div>
+  <div class="row d-xl-flex mt-4">
+    <div class="col d-xl-flex">
+      <p id="instruction">Thank you for shopping with us. We will send a confirmation once your order has shipped. Your order
+        detail are indicated below. If you wwould like to view the status of your order or make changes to it, please click
+        on Your Order in the home page.<br></p>
+    </div>
+  </div>
+</section>
+<section id="delivery-section" class="section-padding mt-4">
+  <div class="row" id="delivery-top-row">
+    <div class="col-12 col-md-6 mb-3">
+      <div class="row">
+        <div class="col">
+          <label class="text-muted">Your estimated delivery date is:</label>
+          <span class="d-block font-weight-bold">
+            {{order.delivery.deliveryDate | date:'medium' }}
+          </span>
+        </div>
+      </div>
+      <div class="row mt-2">
+        <div class="col"><label class="text-muted">Your shipping speed is:</label><span class="d-block font-weight-bold">Standard
+            Shipping</span></div>
+      </div>
+    </div>
+    <div class="col-12 col-md-6 mb-3">
+      <div class="row">
+        <div class="col">
+          <label class="text-muted">Your order will be sent to:</label>
+          <span class="d-block font-weight-bold">
+            {{order.delivery.firstName}} &nbsp; {{order.delivery.lastName}}
+          </span>
+          <span class="d-block font-weight-bold">
+            {{order.delivery.shippingAddress}}
+          </span>
+          <span class="d-block font-weight-bold">
+            {{order.delivery.cityState}}
+          </span>
+          <span class="d-block font-weight-bold">
+            {{order.delivery.zipCode}}
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="order-detail-section" class="section-padding mt-4">
+  <div class="row">
+    <div class="col">
+      <h4>Order Details</h4>
+    </div>
+  </div>
+  <div class="row d-xl-flex">
+    <div class="col d-xl-flex">
+      <span>Order #</span>
+      <span class="ml-2">{{order._id}}</span>
+    </div>
+  </div>
+  <!-- </div> -->
+  <div class="row d-xl-flex">
+    <div class="col d-xl-flex">
+      <span>Placed on:</span>
+      <span class="ml-2">
+        <strong>{{order.delivery.deliveryDate | date:'medium' }}</strong>
+      </span>
+    </div>
+  </div>
+  <div class="row mt-4">
+    <div class="col bg-white" id="right-col">
+      <div class="row bg-white">
+          <div class="row" *ngFor="let item of cartSummary.cart.items">
+            <div class="col-3 col-md-2">
+              <img class="img-fluid" src="assets/img/{{item.product.image[0]}}"></div>
+            <div class="col">
+              <div class="row">
+                <div class="col">
+                  <span class="mr-1 font-weight-bold">
+                    {{item.product.brand}}
+                  </span>
+                  <span>{{item.product.name}}.</span>
+                </div>
+              </div>
+              <div class="row mt-1">
+                <div class="col">
+                  <span class="mr-1">Qty:</span>
+                  <span>{{item.quantity}}</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-2 d-sm-flex justify-content-sm-end">
+              <span class="m-ln-1">{{item.product.price | currency:'USD':'symbol-narrow'}}</span>
+            </div>
+            <div class="col-12">
+              <hr>
+            </div>
+          </div>
+      </div>
+      <div class="row bg-white">
+        <div class="col bg-white right-inner-col">
+          <div class="row font-weight-bold">
+            <div class="col">
+              <span>Subtotal</span>
+            </div>
+            <div class="col text-right">
+              <span>{{cartSummary.subtotal | currency:'USD':'symbol-narrow'}}</span>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col"><span>Sales Tax</span></div>
+            <div class="col text-right"><span>{{cartSummary.tax | currency:'USD':'symbol-narrow'}}</span></div>
+          </div>
+          <div class="row">
+            <div class="col"><span>Discount</span></div>
+            <div class="col text-right"><span>{{cartSummary.discount | currency:'USD':'symbol-narrow'}}</span></div>
+          </div>
+          <div class="row">
+            <div class="col"><span>Appliance Delivery&nbsp;&nbsp;</span></div>
+            <div class="col text-right"><span>FREE</span></div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <hr>
+            </div>
+          </div>
+          <div class="row font-weight-bold f-1pt3">
+            <div class="col"><span>Total</span></div>
+            <div class="col text-right"><span>{{cartSummary.total | currency:'USD':'symbol-narrow'}}</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<app-footer></app-footer>

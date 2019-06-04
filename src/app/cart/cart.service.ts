@@ -61,6 +61,12 @@ export class CartService {
     return of(this.cartSummary);
   }
 
+  public resetCart() {
+    this.cartSummary = new CartSummary();
+    this.cart = new Cart();
+    this.numberOfItems = 0;
+  }
+
   public getTax() {
     return this.getCartSubtotal() * 0.05;
   }

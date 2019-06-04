@@ -3,8 +3,9 @@ import { Routes, RouterModule } from '@angular/router';
 import { OrderComponent } from './order.component';
 
 const routes: Routes = [{
-  path: ':id',
-  component: OrderComponent
+  path: '',
+  component: OrderComponent,
+  data: { breadcrumb: 'Order'},
 }];
 
 @NgModule({

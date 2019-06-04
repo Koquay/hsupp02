@@ -2,6 +2,11 @@
 @import "/app/brand/brand.component.scss";
 @import "~@angular/material/prebuilt-themes/hdorange.css";
 
+body {
+  font-family: 'Roboto';
+  color: #333;
+}
+
 /* to change arrow when focused */
 .mat-select:focus:not(.mat-select-disabled).mat-primary .mat-select-arrow {
   color: #f96302;
@@ -117,4 +122,44 @@
     color: #ff6600
   }
   
+
+  #mobile-nav {
+    padding: 0 1rem;
+    transition: all .5s;
+   
+    .multi-level, .item ul {
+        display: none;
+    }
+    
+    #menu:checked ~ .multi-level, .item input:checked ~ ul {
+        display: block;   
+    }
+    
+    input {
+        display: none;        
+    }
+    
+    .fa-bars {
+        font-size: 1.4rem;        
+    }
+
+    i {
+      color: $color-gold; 
+  }
+
+    li a {
+      color: $color-blue;
+      margin-left: 1rem;
+  }
+    
+}
+
+.category-item {   
+
+    &:hover {
+        font-weight: 500;
+    }
+}
+
+
   

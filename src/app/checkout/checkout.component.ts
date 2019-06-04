@@ -37,8 +37,12 @@ export class CheckoutComponent implements OnInit {
   private placeOrder() {
     console.log('delivery', this.delivery)
     console.log('payment', this.payment)
-    this.orderService.placeOrder(this.delivery, this.payment, this.cartSummary.cart)
-      .subscribe();
+    this.orderService.placeOrder(this.delivery, this.payment, this.cartSummary)
+      .subscribe(order => {
+        this.cartService.resetCart();
+        this.delivery = new Delivery();
+        this.payment = new Payment();
+      });
   }
 
   private setDeliveryDate() {

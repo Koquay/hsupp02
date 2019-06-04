@@ -7,7 +7,7 @@ const routes: Routes = [
   {
     path: '',
     component: AppliancesComponent,
-    // canActivate: [AuthenticationGuard],
+    canActivate: [AuthenticationGuard],
     data: { breadcrumb: 'Appliances'}
   }
 ];

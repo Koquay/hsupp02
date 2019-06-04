@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { OrderService } from './order.service';
+import { Order, Cart, CartSummary } from '../shared/models/data-model';
+import { CartService } from '../cart/cart.service';
 
 @Component({
   selector: 'app-order',
@@ -7,16 +9,30 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./order.component.scss']
 })
 export class OrderComponent implements OnInit {
+  private order:Order;
+  private cartSummary:CartSummary;
 
   constructor(
-    private activatedRoute:ActivatedRoute,
-    private router:Router
+    private orderService:OrderService,
+    private cartService:CartService
   ) { }
 
   ngOnInit() {
-    console.log('activatedRoute', this.activatedRoute)
-    console.log('router', this.router)
-    
+    this.getOrder();    
+    this.getCartSummary();
+  }
+
+  private getOrder() {
+    this.orderService.getOrder().subscribe(order =>  {
+      this.order = order;
+      console.log('order', this.order)
+    })    
+  }
+
+  private getCartSummary() {
+    this.orderService.getCartSummary().subscribe(summary => {
+      this.cartSummary = summary;
+    })
   }
 
 }

@@ -24,6 +24,7 @@
   .button {
     background: #f96302 !important;
     border: 2px #f96302 outset;
+    outline-color: #f96302 !important;
     border-radius: 0;
     font-weight: bold !important;
   }

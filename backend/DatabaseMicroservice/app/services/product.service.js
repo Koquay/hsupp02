@@ -84,8 +84,8 @@ function buildAggregatePipeline(filters) {
     
     aggregatePipeLine.push(buildSortMatch(sortFilter));
     checkForEmptyAggregate(aggregatePipeLine);
-    aggregatePipeLine.push(buildPageNumberFilter(pageNo));
-    // aggregatePipeLine.push(buildPageSizeFilter(pageSize));
+    aggregatePipeLine.push(buildPageNumberFilter(pageNo, pageSize));
+    aggregatePipeLine.push(buildPageSizeFilter(pageSize));
 
     return aggregatePipeLine;
 }
@@ -132,8 +132,10 @@ function buildSortMatch(sortFilter) {
     return filter;
 }
 
-function buildPageNumberFilter(pageNo) {
-    return { $skip: pageNo };
+function buildPageNumberFilter(pageNo, pageSize) {
+    let skip = (pageNo-1) * pageSize;
+
+    return { $skip: skip };
 }
 
 function buildPageSizeFilter(pageSize) {
