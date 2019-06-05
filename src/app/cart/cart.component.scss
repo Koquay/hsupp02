@@ -7,11 +7,15 @@ $color-gray: #eee;
 #left-col {
     #free-section {
         font-size: .9rem;
+
+        // button {
+        //     width: 288px !important; 
+        // }
     }
     
     #btn-checkout {
         padding: .5rem 6rem;
-        letter-spacing: 2px;
+        letter-spacing: 2px;        
     }
 
 }
@@ -23,3 +27,9 @@ $color-gray: #eee;
 .bg-eee {
     background: $color-gray;
 }
+
+// #free-section {
+//     button {
+//         width: 288px !important; 
+//     }
+//   }

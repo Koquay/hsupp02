@@ -43,9 +43,16 @@ body {
   }
 
   #header {
-    z-index: 20;
+    z-index: 20; 
   }
 }
+
+#free-section {
+  button {
+      width: 288px !important; 
+  }
+}
+
 
 
 .f-1pt2 {

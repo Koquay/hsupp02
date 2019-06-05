@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {FormsModule} from '@angular/forms';
+import { AlertModule } from 'ngx-bootstrap/alert';
 
 import { SharedRoutingModule } from './shared-routing.module';
 import { HeaderComponent } from '../../../header/header.component';
@@ -23,6 +24,7 @@ import { BreadcrumbComponent } from '../../../breadcrumb/breadcrumb.component';
     CommonModule,
     SharedRoutingModule,
     FormsModule,
+    AlertModule.forRoot(),
   ],
   exports: [
     HeaderComponent,
