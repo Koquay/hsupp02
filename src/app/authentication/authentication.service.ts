@@ -10,7 +10,7 @@ import { ErrorService } from '../shared/error/error.service';
   providedIn: 'root'
 })
 export class AuthenticationService {
-  private userSigninUrl = 'http://localhost:4500/api/user/signin';
+  private userSigninUrl = 'http://localhost:4600/api/user/signin';
   private userLogin = false;
 
   constructor(
@@ -26,19 +26,19 @@ export class AuthenticationService {
       map(userData => {
         
 
-        if(userData.user.errorMessage) {
-          console.log('userData', userData);
-          this.errorService.handleError(userData.user);
-        }
-        else if(userData.cart.errorMessage) {
-          console.log('userData', userData);
-          this.errorService.handleError(userData.cart);
-        }
+        // if(userData.user.errorMessage) {
+        //   console.log('userData', userData);
+        //   this.errorService.handleError(userData.user);
+        // }
+        // else if(userData.cart.errorMessage) {
+        //   console.log('userData', userData);
+        //   this.errorService.handleError(userData.cart);
+        // }
         
         this.cartService.setCart(userData.cart);   
         return userData.user;
       }),
-      // catchError(this.handleError.bind(this))
+      catchError(this.handleError.bind(this))
     )
   }  
 

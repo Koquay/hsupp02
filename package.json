@@ -13,7 +13,8 @@
     "ProductMicroservice": "nodemon backend/ProductMicroservice/server.js",
     "DatabaseMicroservice": "nodemon backend/DatabaseMicroservice/server.js",
     "CartMicroservice": "nodemon backend/CartMicroservice/server.js",
-    "OrdertMicroservice": "nodemon backend/OrderMicroservice/server.js"
+    "OrdertMicroservice": "nodemon backend/OrderMicroservice/server.js",
+    "start:server": "nodemon backend-v3/server.js"
   },
   "private": true,
   "dependencies": {

@@ -18,14 +18,14 @@ export class OrderComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.getOrder();    
-    this.getCartSummary();
+    this.getOrder();        
   }
 
   private getOrder() {
     this.orderService.getOrder().subscribe(order =>  {
       this.order = order;
       console.log('order', this.order)
+      this.getCartSummary();
     })    
   }
 
