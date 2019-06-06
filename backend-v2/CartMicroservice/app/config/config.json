@@ -1,6 +1,0 @@
-{
-  "DatabaseMicroservice": {    
-    "cartUrl":"http://localhost:4230/cart",
-    "cartAddUrl":"http://localhost:4230/cart/add"
-  }
-}

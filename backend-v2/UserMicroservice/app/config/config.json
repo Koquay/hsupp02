@@ -1,5 +1,0 @@
-{
-  "DatabaseMicroservice": {    
-    "userSigninUrl":"http://localhost:4230/user/signin"
-  }
-}
