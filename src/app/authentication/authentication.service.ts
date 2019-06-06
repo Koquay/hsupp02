@@ -23,18 +23,7 @@ export class AuthenticationService {
     console.log('credentials', credentials);
 
     return this.httpClient.post<{user, cart}>(this.userSigninUrl, credentials).pipe(
-      map(userData => {
-        
-
-        // if(userData.user.errorMessage) {
-        //   console.log('userData', userData);
-        //   this.errorService.handleError(userData.user);
-        // }
-        // else if(userData.cart.errorMessage) {
-        //   console.log('userData', userData);
-        //   this.errorService.handleError(userData.cart);
-        // }
-        
+      map(userData => {                 
         this.cartService.setCart(userData.cart);   
         return userData.user;
       }),
@@ -44,6 +33,6 @@ export class AuthenticationService {
 
   private handleError(error) {
     console.log('authentication.service#error', error);
-    return this.errorService.handleError(error);
+    return this.errorService.handleError1(error);
   }
 }

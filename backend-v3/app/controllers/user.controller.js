@@ -1,5 +1,6 @@
 const UserService = require('../services/user.service');
 const CartService = require('../services/cart.service');
+const ErrorHandler = require('../errors/error-handler');
 
 exports.signin = (async (req, res) => {
     console.log('\n*** DATABASE USER SIGNIN CALLED ***')   
@@ -7,7 +8,9 @@ exports.signin = (async (req, res) => {
     try {
         console.log('req.body.email', req.body.email)
         console.log('req.body', req.body)
-        // let userObj = JSON.parse(req.query.user);
+
+        // throw new Error('Problem signing in user.');
+
         let user = await UserService.signin(res, req.body);     
         let cart = await CartService.getCart(req.body.email, res);
         console.log('user.controller cart', cart)
@@ -15,10 +18,6 @@ exports.signin = (async (req, res) => {
         let userData = {user:user, cart:cart};
         res.status(200).json(userData);
     } catch (error) {   
-        let user = {};
-        user.errorMessage = error.message;
-        user.errorStatus = error.status;
-        console.log('****** DatabaseMicroservice user.controller **********', user)
-        res.status(error.status).json({ user });
+        return ErrorHandler.handleError('controller#signin', res, 400, error);
     }
 });
