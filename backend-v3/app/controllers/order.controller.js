@@ -8,7 +8,7 @@ exports.add = (async (req, res) => {
     try {
         const newOrder = await OrderService.add(req.body.order);
 
-        // await CartService.removeAllItems(email);
+        await CartService.removeAllItems(email);
         // console.log('new order', newOrder)
         res.status(201).json(newOrder);
 

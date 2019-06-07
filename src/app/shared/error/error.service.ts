@@ -15,20 +15,14 @@ export class ErrorService {
     private alertService:AlertService
   ) { }
 
-  public handleError1(error:HttpErrorResponse) {
-    console.log('### ErrorService#handleError ###');
-    const message = (error.error instanceof ErrorEvent) ?
-      error.error.message : `Error code: ${error.status} - ${error.error}`;
-    console.log('error message', message);
-
-    const errorAlert = new Alert(message, AlertType.DANGER);
-    this.alertService.publishError(errorAlert);
-    throwError(error);
-  }
-
   public handleError(error) {
     console.log('### ErrorService#handleError ###');
-    const message =  `Error: ${error.errorStatus} - ${error.errorMessage}`;
+    console.log('error', error);
+    console.log('error.error', error.error);
+
+    let errorMessage = error.error.message || error.message;
+    let errorStatus = error.error.status || error.status;
+    const message =  `Error: ${errorStatus} - ${errorMessage}`;
     console.log('error message', message);
 
     const errorAlert = new Alert(message, AlertType.DANGER);

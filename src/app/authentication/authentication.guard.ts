@@ -16,14 +16,14 @@ export class AuthenticationGuard implements CanActivate  {
     if(user) {
       return true;
     }
-
-    const error = {error: 'You must be logged in to proceed.', status:500};    
-    return this.handleError(new HttpErrorResponse(error));
+    
+    const error = {message: 'You must be logged in to proceed.', status:300};    
+    return this.handleError(new HttpErrorResponse({error:error}));
   }
 
   private handleError(error) {
     console.log('error', error);
-    this.errorService.handleError1(error);
+    this.errorService.handleError(error);
     return false;
   }
 }

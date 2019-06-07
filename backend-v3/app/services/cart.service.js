@@ -5,6 +5,7 @@ const redisClient = require('../cache/redis-cache');
 
 exports.getCart = async (email, res) => {
     console.log('\n#### cartService#getCart ####');
+    let cart = {};
 
     try {
         // throw new Error();
@@ -23,10 +24,13 @@ exports.getCart = async (email, res) => {
         }
         return cart;
     } catch (error) {
+        console.log('CART SERVICE GET CART ERROR')
+
         error = new Error()
         error.message = 'Problem retrieving user cart!'
-        error.status = "404";
-        throw error;
+        error.status = "404";       
+        cart.error = error;
+        return cart;
     }
 }
 

@@ -2,7 +2,7 @@
   <app-header></app-header>  
   
   <section id="alert" class="f-1pt2">
-    <alert *ngFor="let alert of alerts" [type]="alert.type" dismissOnTimeout="20000" class="text-center alert">
+    <alert *ngFor="let alert of alerts" [type]="alert.type" dismissOnTimeout="10000" class="text-center alert">
       {{alert.text}}
     </alert>
   </section>

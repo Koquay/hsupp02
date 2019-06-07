@@ -23,7 +23,7 @@ export class AuthenticationService {
     console.log('credentials', credentials);
 
     return this.httpClient.post<{user, cart}>(this.userSigninUrl, credentials).pipe(
-      map(userData => {                 
+      map(userData => {              
         this.cartService.setCart(userData.cart);   
         return userData.user;
       }),
@@ -33,6 +33,6 @@ export class AuthenticationService {
 
   private handleError(error) {
     console.log('authentication.service#error', error);
-    return this.errorService.handleError1(error);
+    return this.errorService.handleError(error);
   }
 }

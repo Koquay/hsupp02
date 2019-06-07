@@ -6,23 +6,21 @@ exports.get = (async (req, res) => {
     try {
 
         const cart = await CartService.getCart(req.query.email, res);
-        res.status(200).json({ cart });
-        return;
+        
+        if(cart.error) {
+            return errorHandler.handleError('SIGN IN', res, cart.error);
+        } else {
+            return  res.status(200).json({ cart });
+        }               
 
     } catch (error) {
-        let cart = {};
-        cart.errorMessage = error.message;
-        cart.errorStatus = error.status;
-        console.log('****** DatabaseMicroservice cart.controller GET **********', cart)
-        res.status(error.status).json({ cart });
-        return;
+        console.log('****** cart.controller GET **********', cart)
+        return errorHandler.handleError('GET CART', res, error);
     }
 });
 
 exports.add = (async (req, res) => {
     console.log('DATABASE CONTROLLER ADD TO CART')
-
-    // let payload = JSON.parse(req.query.payload);
 
     let email = JSON.parse(req.headers.user).email;
     let item = req.body;

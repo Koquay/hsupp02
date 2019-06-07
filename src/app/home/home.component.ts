@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {interval} from 'rxjs/Observable/interval';
 
 import { AlertService } from '../shared/alerts/alert.service';
 import { Alert } from '../shared/alerts/alert';

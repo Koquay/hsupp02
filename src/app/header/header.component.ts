@@ -52,7 +52,7 @@ export class HeaderComponent implements OnInit {
 
     this.initMarquee();
 
-    marqueeInterval.subscribe(() => {
+    marqueeInterval.subscribe(() => {      
       this.marquee = this.marqueeContents[index++]
       if(index==this.marqueeContents.length) {
         index=0;
