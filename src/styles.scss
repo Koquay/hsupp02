@@ -1,6 +1,7 @@
 @import "/app/appliances/appliances.component.scss";
 @import "/app/brand/brand.component.scss";
-@import "~@angular/material/prebuilt-themes/hdorange.css";
+// @import "~@angular/material/prebuilt-themes/hdorange.css";
+@import "./styles-hdorange.css"; //for heroku deployment
 
 body {
   font-family: 'Roboto';
