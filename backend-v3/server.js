@@ -14,8 +14,7 @@ configureDatabase();
 app.use(errorHandler);
 // configureErrorHandler(server);
 // server.use(ErrorHandler)
-// const PORT = process.env.PORT || 4500;
-const PORT = 4600;
+const PORT = process.env.PORT || 4600;
 
 app.listen(PORT, () => {
     console.log(`hsupp02 server running on port: ${PORT}`)

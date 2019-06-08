@@ -10,7 +10,9 @@ import { ErrorService } from '../shared/error/error.service';
   providedIn: 'root'
 })
 export class AuthenticationService {
-  private userSigninUrl = 'http://localhost:4600/api/user/signin';
+  private userSigninUrl = '/api/user/signin';
+  // private userSigninUrl = 'http://localhost:4600/api/user/signin';
+  
   private userLogin = false;
 
   constructor(
