@@ -181,7 +181,7 @@
               <mat-form-field class="w-100">
                 <mat-label>Expiration</mat-label>
                 <mat-select name="expMonth" [(ngModel)]="payment.expMonth" #expMonth="ngModel">
-                  <mat-option *ngFor="let expMonth of expMonths" [value]="expMonth">
+                  <mat-option *ngFor="let expMonth of expMonths" [value]="expMonth.month">
                     {{expMonth.month}}
                   </mat-option>
                 </mat-select>
@@ -192,7 +192,7 @@
               <mat-form-field class="w-100">
                 <mat-label> </mat-label>
                 <mat-select name="expYear" [(ngModel)]="payment.expYear" #expYear="ngModel">
-                  <mat-option *ngFor="let expYear of expYears" [value]="expYear">
+                  <mat-option *ngFor="let expYear of expYears" [value]="expYear.year">
                     {{expYear.year}}
                   </mat-option>
                 </mat-select>
