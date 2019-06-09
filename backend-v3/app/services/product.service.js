@@ -5,19 +5,19 @@ const Product = require('mongoose').model('Product');
 const mongoose = require('mongoose');
 
 exports.getProductById = async (id, res) => {
-    let product = await fetchProductFromCache(id);
+    // let product = await fetchProductFromCache(id);
 
-    if (product == null) {
+    // if (product == null) {
         try {            
             const dbId = mongoose.Types.ObjectId(id)
             product = await Product.findById(dbId);
-            setProductInCache(id, product);
+            // setProductInCache(id, product);
             console.log('PRODUCT FROM DB ');
         } catch (error) {
             throw error;
             // new ErrorHandler(res, error);
         }
-    }
+    // }
     return product;
 }
 
