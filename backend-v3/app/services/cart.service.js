@@ -12,7 +12,7 @@ exports.getCart = async (email, res) => {
 
         // let cart = await fetchCartFromCache(email);
 
-        if (cart == null) {
+        // if (cart == null) {
             cart = await Cart.findOne({ email: email });
             console.log('CART FROM DATABASE');
             // redisClient.setCart(email, cart);
@@ -21,7 +21,7 @@ exports.getCart = async (email, res) => {
                 cart = new Cart({ email: email, items: [] });
                 cart = await cart.save()
             }
-        }
+        // }
         return cart;
     } catch (error) {
         console.log('CART SERVICE GET CART ERROR')
