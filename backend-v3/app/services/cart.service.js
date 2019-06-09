@@ -1,7 +1,7 @@
 const errorHandler = require('../util/error.handler');
 require('../models/cart.model');
 const Cart = require('mongoose').model('Cart');
-const redisClient = require('../cache/redis-cache');
+// const redisClient = require('../cache/redis-cache');
 
 exports.getCart = async (email, res) => {
     console.log('\n#### cartService#getCart ####');
@@ -10,12 +10,12 @@ exports.getCart = async (email, res) => {
     try {
         // throw new Error();
 
-        let cart = await fetchCartFromCache(email);
+        // let cart = await fetchCartFromCache(email);
 
         if (cart == null) {
             cart = await Cart.findOne({ email: email });
             console.log('CART FROM DATABASE');
-            redisClient.setCart(email, cart);
+            // redisClient.setCart(email, cart);
 
             if (cart == null) {
                 cart = new Cart({ email: email, items: [] });
