@@ -50,7 +50,7 @@ export class FooterService {
           'Careers',
           'Corporate Information',
           'Digital Newsroom',
-          'Home Depot Foundation',
+          'Home Supply Foundation',
           'Investor Relations',
           'Government Customers',
           'Suppliers & Providers',
