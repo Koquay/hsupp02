@@ -12,8 +12,6 @@ configureControllerRoutes(app);
 configureModels();
 configureDatabase();
 app.use(errorHandler);
-// configureErrorHandler(server);
-// server.use(ErrorHandler)
 const PORT = process.env.PORT || 4600;
 
 app.listen(PORT, () => {

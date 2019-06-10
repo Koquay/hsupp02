@@ -27,7 +27,8 @@
             </div>
             <div class="row mt-2">
                 <div class="col" id="free-section">
-                    <button class="btn btn-primary button d-xl-none mb-3 mt-2" id="btn-checkout" type="button"  [routerLink]="['/checkout']">
+                    <button class="btn btn-primary button d-xl-none mb-3 mt-2" id="btn-checkout" type="button"  
+                        [routerLink]="['/checkout']">
                         Checkout
                     </button>
                     <p class="mb-1">FREE Shipping on eligible items. See Details</p>
@@ -158,7 +159,8 @@
                     <div class="row mt-4">
                         <div class="col">
                             <i class="fa fa-check"></i>
-                            <button class="btn btn-primary button w-100" type="button" [routerLink]="['/checkout']">
+                            <button class="btn btn-primary button w-100" type="button" 
+                                [routerLink]="['/checkout']" [disabled]="!cartService.numberOfItems">
                                 Checkout
                             </button>
                         </div>
@@ -220,7 +222,10 @@
                     <div class="row mt-4">
                         <div class="col">
                             <i class="fa fa-check"></i>
-                            <button class="btn btn-primary button w-100" type="button" [routerLink]="['/checkout']">Checkout</button>
+                            <button class="btn btn-primary button w-100" type="button" 
+                                [routerLink]="['/checkout']"  [disabled]="!cartService.numberOfItems">
+                                Checkout
+                            </button>
                         </div>
                     </div>
                 </div>

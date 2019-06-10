@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { forkJoin, of } from 'rxjs';
-import { Delivery, Payment, Cart, OrderItem, Order } from '../shared/models/data-model';
 
 @Injectable({
   providedIn: 'root'
