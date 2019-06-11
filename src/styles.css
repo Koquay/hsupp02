@@ -256,6 +256,10 @@
   .c-blue {
     color: #3e7697;
   }
+
+  .c-black {
+    color: #333;
+  }
   
   #trending img {
     width: 75%;
