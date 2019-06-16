@@ -18,6 +18,7 @@
       <ul class="list-unstyled">
         <li *ngFor="let link of appliancesSidebarLinks.refrigerators.links">
           <a href="#">{{link}}</a>
+          <i class="fa fa-check" *ngIf="indx < 3"></i>
         </li>
       </ul>
     </div>

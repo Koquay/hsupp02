@@ -99,6 +99,13 @@
     padding: .1rem;
     /*z-index: 1;*/
   }
+
+  #instructions {
+    background-color: white;
+    color: green;
+    padding: .1rem;
+    /*z-index: 1;*/
+  }
   
   @media (min-width: 1200px) {
     #marquee {

@@ -2,6 +2,16 @@
   <section [ngClass]="{'overlay' : isOverlay}"></section>
 
   <section id="header">
+      <section id="instructions">
+          <div class="row d-none d-xl-block">
+            <div class="col text-center">
+              <h3>
+                  <i class="fa fa-check fa-2x"></i>
+                PLEASE FOLLOW GREEN CHECK MARKS FOR IMPLIMENTED USE CASES            
+              </h3>          
+              </div>
+          </div>
+        </section>
     <section id="top-row" class="section-padding d-none d-xl-block">
       <div class="row">
         <div class="col d-lg-flex justify-content-lg-end px-0 offset-5">
@@ -169,7 +179,7 @@
         <div class="col text-center"><span>{{marquee}}</span><span id="marquee-detail" class="ml-2">Over one million online
             items eligible.</span><i class="fa fa-chevron-right ml-1"></i></div>
       </div>
-    </section>
+    </section>    
 
     <app-breadcrumb></app-breadcrumb>
   </section>
